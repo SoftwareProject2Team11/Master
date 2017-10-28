@@ -1,5 +1,5 @@
 package logic;
-//testcomment
+
 public class Address {
 
 	private String street;
