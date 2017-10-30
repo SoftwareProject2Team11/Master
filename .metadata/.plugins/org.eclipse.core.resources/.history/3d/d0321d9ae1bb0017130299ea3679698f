@@ -1,0 +1,16 @@
+package logic;
+
+public class Login {
+	private int loginId;
+	private String username;
+	private String password;
+	
+	
+	public String getUsername(int loginId)
+	{
+		
+	}
+	
+	
+	
+}
