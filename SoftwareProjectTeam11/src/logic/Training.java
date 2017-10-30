@@ -146,7 +146,7 @@ public class Training {
 	}
 	
 	
-	//Feature 1
+	//Feature 
 	public void showEmployeeList() {
 		for (int i=0; i<employeeList.size(); i++) {
 			System.out.println(employeeList.get(i).toString());
