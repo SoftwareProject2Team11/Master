@@ -1,18 +1,31 @@
 package logic;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class Login {
 	private int loginId;
 	private String username;
 	private String password;
+	private String output;
 	
+	public Login(String username,String password)
+	{
+		this.loginId++;
+		Connect(username,password);
+	}
 	
+	public int getLoginId() {
+		return loginId;
+	}
+
 	public String getUsername()
 	{
 		
 	return this.username;	
 	
 	}
-	public bool Connect(String username,String password)
+	public void Connect(String username,String password) 
 	{
 		/*
 		 * Mogelijkheid 1 voor hash password
@@ -22,16 +35,7 @@ public class Login {
 		 * String sha256hex = org.apache.commons.codec.digest.DigestUtils.sha256Hex(stringText); 
 		 *Wat het eigenlijk moet doen: 
 		 * password= sha256(password);
-		  */
-		if(this.password==password && this.username==username)
-		{
-			return true;
-		}
-		else 
-		{
-			return false;
-		}
-		}
+		  
 	/* Mogelijkheid voor sha256 hash
 	 * public static String sha256(String base) {
     try{
@@ -51,8 +55,42 @@ public class Login {
     }
 }
 *Andere mogelijkheden in de links in het Referenties document
+*Hieronder een probeersel(dit zal enkel gaan mits connectie met de database
 */
 	
+
+		MessageDigest md;
+			try {
+				md = MessageDigest.getInstance("SHA-256");
+			
+		 
+		md.update(password.getBytes());
+		byte byteData[] = md.digest();
+		StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < byteData.length; i++) {
+         sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+        }
+        	
+        System.out.println("Hex format : " + sb.toString());
+		
+		if(this.password==password && this.username==username)
+		{
+			this.output="Connected.";
+			System.out.println(this.output);
+		}
+		else
+		{
+			this.output="Not Connected.";
+			System.out.println(this.output);
+			
+		} 
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			this.output="Not Connected.";
+			System.out.println(this.output);
+		}
+	}
 	
 	
 }

@@ -38,7 +38,7 @@ public class Material {
 	{
 		this.title=title;
 	}
-	public void setAuthor(int author)
+	public void setAuthor(String author)
 	{
 		this.author=author;
 	}
