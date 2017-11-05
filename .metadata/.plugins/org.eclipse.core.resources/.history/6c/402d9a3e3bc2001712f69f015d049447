@@ -37,10 +37,10 @@ public class Address {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public int getStreetId() {
+	public String getStreetId() {
 		return streetId;
 	}
-	public void setStreetId(int streetId) {
+	public void setStreetId(String streetId) {
 		this.streetId = streetId;
 	}
 }
