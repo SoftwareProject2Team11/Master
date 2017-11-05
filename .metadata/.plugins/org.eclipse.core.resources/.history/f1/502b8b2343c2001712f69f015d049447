@@ -6,23 +6,22 @@ public class Address {
 	
 	//@Id
 	//@Column(name="addressId")
-	private int AddressId;
+	private int streetId;
 	//@Column(name="streetname")
 	private String streetname;
 	//@Column(name="houseNumber)
 	private int houseNumber;
 	//@Column(name="city")
 	private String city;
-	
 	public Address(String streetname, int houseNumber, String city) {
 		super();
 		this.streetname = streetname;
 		this.houseNumber = houseNumber;
 		this.city = city;
 	}
-	public Address(int AddressId,String streetname, int houseNumber, String city) {
+	public Address(int streetId,String streetname, int houseNumber, String city) {
 		super();
-		this.AddressId = AddressId;
+		this.streetId = streetId;
 		this.streetname = streetname;
 		this.houseNumber = houseNumber;
 		this.city = city;
@@ -45,10 +44,10 @@ public class Address {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public int getAddressId() {
-		return AddressId;
+	public int getStreetId() {
+		return streetId;
 	}
-	public void setAddressId(int AddressId) {
-		this.AddressId = AddressId;
+	public void setStreetId(int streetId) {
+		this.streetId = streetId;
 	}
 }
