@@ -4,3 +4,4 @@ https://stackoverflow.com/questions/5531455/how-to-hash-some-string-with-sha256-
 https://stackoverflow.com/questions/33085493/hash-a-password-with-sha-512-in-java
 https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
 https://www.mkyong.com/java/java-sha-hashing-example/
+https://stackoverflow.com/questions/29814050/how-to-define-destructors
