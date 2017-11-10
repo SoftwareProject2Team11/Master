@@ -2952,4 +2952,8 @@
   <categories xmi:id="_SFNtDMJIEee4qfdsSoePGg" elementId="org.eclipse.pde.runtime.spy.commands.category" name="Spy"/>
   <categories xmi:id="_SFNtDcJIEee4qfdsSoePGg" elementId="org.eclipse.pde.ui.category.source" name="Manifest Editor Source" description="PDE Source Page actions"/>
   <categories xmi:id="_SFNtDsJIEee4qfdsSoePGg" elementId="org.eclipse.xtext.ui.category.refactoring" name="Refactoring" description="Refactoring Commands"/>
+<<<<<<< HEAD
 </application:Application>
+=======
+</application:Application>
+>>>>>>> cefcf2154906242c46de7424c19b5fa62a9f3cd8

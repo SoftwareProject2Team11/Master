@@ -95,4 +95,8 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.e
 user global configuration and to define the default location to store repositories: 'C:\Users\Oussama El Aazmani'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
+<<<<<<< HEAD
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+=======
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+>>>>>>> cefcf2154906242c46de7424c19b5fa62a9f3cd8
