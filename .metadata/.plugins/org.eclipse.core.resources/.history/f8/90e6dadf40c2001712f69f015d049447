@@ -1,0 +1,12 @@
+package logic;
+
+public class Survey {
+	
+	private int surveyId;
+	private Training training;
+	private String surveyDescription;
+	private Employee employee;
+	
+	
+
+}
