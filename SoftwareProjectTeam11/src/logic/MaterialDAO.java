@@ -59,6 +59,31 @@ public class MaterialDAO {
 		MaterialsA.add(m);
 		return MaterialsA;
 	}
+	public void addMaterial(String title,int ISBN, String author)
+	{
+		Material m = new Material(title,ISBN,author);
+		s.save(m);
+	}
+	public void updateTitle(int id,String title)
+	{
+		Material m = (Material) s.load(Material.class, id);
+		Material.setTitle(title);
+		
+	}
+	public void updateISBN(int id,int ISBN)
+	{
+		Material m = (Material) s.load(Material.class, id);
+		Material.setISBN(ISBN);
+		
+	}
+	public void updateauthor(int id,String author)
+	{
+		Material m = (Material) s.load(Material.class, id);
+		Material.setAuthor(author);
+		
+	}
+	
+	
 	public void finalize() {
 		   s.getTransaction().commit();
 		   s.close();
