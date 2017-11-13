@@ -82,8 +82,7 @@ public class MaterialDAO {
 		Material.setAuthor(author);
 		
 	}
-	
-	
+		
 	public void finalize() {
 		   s.getTransaction().commit();
 		   s.close();
