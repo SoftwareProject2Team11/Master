@@ -1,5 +1,7 @@
 /.metadata/
 /README.md/
 /.recommenders/
-\.recommenders\
-\.metadata\
+
+.recommenders\
+.metadata\
+/.classpath/
