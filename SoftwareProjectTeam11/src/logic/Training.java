@@ -3,8 +3,19 @@ package logic;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Entity;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.Session;
+
+@Entity
+@Table
 public class Training {
 	
+	@Id
 	private int trainingID;
 	private Address address;
 	private int duration;
