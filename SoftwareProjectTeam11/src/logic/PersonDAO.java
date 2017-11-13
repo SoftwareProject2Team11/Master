@@ -31,6 +31,7 @@ public class PersonDAO extends Connection{
 		
 	    TypedQuery<Person> query = s.createQuery("FROM Person");
 	    persons = query.getResultList();
+	    this.finalize();
 	    return persons;
 	}
 	
