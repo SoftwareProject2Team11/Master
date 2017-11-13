@@ -6,7 +6,7 @@ import java.util.Date;
 public class Training {
 	
 	private int trainingID;
-	private Locatie address;
+	private Address address;
 	private int duration;
 	private String summary;
 	private Date date;
@@ -37,10 +37,10 @@ public class Training {
 	public void setTrainingID(int trainingID) {
 		this.trainingID = trainingID;
 	}
-	public Locatie getAddress() {
+	public Address getAddress() {
 		return address;
 	}
-	public void setAddress(Locatie address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 	public int getDuration() {
