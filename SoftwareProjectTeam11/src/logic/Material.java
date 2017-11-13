@@ -13,6 +13,18 @@ public class Material {
 		this.setAuthor(author);
 		this.setISBN(ISBN);
 	}
+	//deze zou eigenlijk niet mogen gebruikt door de gebruiker/andere klasses buiten de DAO's worden maar wordt gebruikt om een instantie te maken binnen MaterialDAO
+	public Material()
+	{
+		
+	}
+	public void setMaterial(String title, int ISBN,String author)
+	{
+		this.setTitle(title);
+		this.setISBN(ISBN);
+		this.setAuthor(author);
+		
+	}
 	public int getMaterialID()
 	{
 		return this.materialID;

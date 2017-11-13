@@ -1,25 +1,25 @@
 package logic;
 
 import javax.persistence.Id;
-import.javax.persistence.Table;
+import javax.persistence.Table;
 import javax.persistence.Entity;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.sun.prism.Material;
+import java.util.ArrayList;
 
 import org.hibernate.Session;
 
 public class LoginDAO {
 
 	
-
+	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+	Session s = sessionFactory.openSession();
 	public LoginDAO()
 	{
-		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		Session s = sessionFactory.openSession();
-		session.beginTransaction();	
+		
+		s.beginTransaction();	
 	}
 	public ArrayList<Login> getAll()
 	{
