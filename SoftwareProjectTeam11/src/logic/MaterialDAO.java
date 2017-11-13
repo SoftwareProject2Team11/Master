@@ -81,7 +81,7 @@ public class MaterialDAO {
 	{
 		Material m = (Material) s.load(Material.class, id);
 		m.setAuthor(author);
-		s
+		
 	}
 		
 	public void finalize() {
