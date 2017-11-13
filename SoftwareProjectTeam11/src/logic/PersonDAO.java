@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.Root;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -25,27 +26,13 @@ public class PersonDAO extends Connection{
 	{
 		super();
 }
-	public ArrayList<Person> getAll(){
-		ArrayList<Person> persons = new ArrayList<Person>();
+	public List<Person> getAll(){
+		List<Person> persons;
 		
-			Person person = (Person)s.get(Person.class);
-			persons.add(person);
+	    TypedQuery<Person> query = s.createQuery("FROM Person");
+	    persons = query.getResultList();
+	    return persons;
 	}
-	/*
-	public ArrayList<Login> getAll()
-	{
-		ArrayList<Login>Logins = new ArrayList<Login>();
-		Login l = new Login();
-		l = (Login)s.get(Login.class);
-		Logins.add(l);
-		return Logins;
-	}
-	public Login getLoginByUsername(int username)
-	{
-		Login l = new Login();
-		l = (Login)s.get(Login.class,username);
-		return l;
-	}*/
 	
 
 }
