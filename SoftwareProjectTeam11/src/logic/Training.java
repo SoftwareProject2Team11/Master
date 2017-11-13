@@ -103,6 +103,26 @@ public class Training {
 		this.reminder = reminder;
 	}
 
+	public String showMaterialListForMail() {
+		String list = ""; 
+		list = list + "<ul>\n";
+		for (int i=0; i<materialList.size(); i++) {
+			list = list + "<li><p>" + materialList.get(i).getTite() + " - " + materialList.get(i).getAuthor() + " - " + materialList.get(i).getIsbn() + "</p></li>";
+		}
+		list = list + "</ul>\n";
+		return list;	
+	}
+	
+	public String showEmployeeListForMail() {
+		String list = ""; 
+		list = list + "<ul>\n";
+		for (int i=0; i<employeeList.size(); i++) {
+			list = list + "<li><p>" + employeeList.get(i).getNaam() + " - " + employeeList.get(i).getLeeftijd() + " jaar</p></li>";
+		}
+		list = list + "</ul>\n";
+		return list;	
+	}
+	
 	@Override
 	public String toString() {
 		return "Training [trainingID=" + trainingID + ", address=" + address + ", duration=" + duration + ", summary="

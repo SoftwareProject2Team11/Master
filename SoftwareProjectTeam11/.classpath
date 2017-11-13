@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate Library 2"/>
 	<classpathentry kind="lib" path="/Users/Robin/Documents/Software Project II/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaMail"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
