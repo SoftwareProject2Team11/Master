@@ -36,8 +36,16 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!-- Names the annotated entity class -->
-	       <mapping class="logic.Training"/>
-            <mapping class="logic.Reminder"/>
+        <mapping class="basicClass.Address"/>
+	<mapping class="basicClass.Answer"/>
+	<mapping class="basicClass.Certificat"/>
+	<mapping class="basicClass.Employee"/>
+	<mapping class="basicClass.Login"/>
+	<mapping class="basicClass.Material"/>
+	<mapping class="basicClass.Question"/>
+	<mapping class="basicClass.Reminder"/>
+	<mapping class="basicClass.Survey"/>
+	<mapping class="basicClass.Training"/>
 
      </session-factory> 
 

@@ -16,9 +16,17 @@ public class Reminder {
 	private Date reminderDate;
 	
 	public Reminder(int reminderId, Date rinderDate) {
-		super();
 		this.reminderId = reminderId;
 		this.reminderDate = rinderDate;
+	}
+	
+	public Reminder() {
+		
+	}
+	
+	public void setReminder(int reminderId, Date reminderDate) {
+		this.setReminderId(reminderId);
+		this.setRinderDate(reminderDate);
 	}
 
 	public int getReminderId() {

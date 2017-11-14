@@ -1,5 +1,6 @@
 package logic;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,14 +12,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.Session;
 
-@Entity
-@Table
 public class Training {
 	
-	@Id
 	private int trainingID;
+	private String trainingName;
 	private Address address;
-	private int duration;
+	private Time duration;
 	private String summary;
 	private Date date;
 	private ArrayList<Employee> employeeList = new ArrayList<Employee>();
@@ -27,7 +26,7 @@ public class Training {
 	private boolean isActief;
 	private Reminder reminder;
 	
-	public Training(int trainingID, Locatie address, int duration, String summary, Date date,
+	public Training(int trainingID, Locatie address, Time duration, String summary, Date date,
 			ArrayList<Employee> employeeList, ArrayList<Material> materialList, ArrayList<Certificat> certificatList,
 			boolean isActief, Reminder reminder) {
 		this.trainingID = trainingID;
@@ -41,6 +40,19 @@ public class Training {
 		this.isActief = isActief;
 		this.reminder = reminder;
 	}
+	
+	public Training() {
+		
+	}
+	
+	public void setTraining(int trainingId, Time duration, String summary, Date date, boolean visibility, String trainingName) {
+		this.setTrainingID(trainingId);
+		this.setDuration(duration);
+		this.setSummary(summary);
+		this.setDate(date);
+		this.setActief(visibility);
+		this.setTrainingName(trainingName);
+	}
 
 	public int getTrainingID() {
 		return trainingID;
@@ -48,16 +60,22 @@ public class Training {
 	public void setTrainingID(int trainingID) {
 		this.trainingID = trainingID;
 	}
+	public String getTrainingName() {
+		return trainingName;
+	}
+	public void setTrainingName(String trainingName) {
+		this.trainingName = trainingName;
+	}
 	public Address getAddress() {
 		return address;
 	}
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	public int getDuration() {
+	public Time getDuration() {
 		return duration;
 	}
-	public void setDuration(int duration) {
+	public void setDuration(Time duration) {
 		this.duration = duration;
 	}
 	public String getSummary() {
