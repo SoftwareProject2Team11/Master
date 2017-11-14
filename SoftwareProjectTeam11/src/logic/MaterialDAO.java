@@ -1,13 +1,12 @@
 package logic;
 
 import javax.persistence.Id;
-import.javax.persistence.Table;
+import javax.persistence.Table;
 import javax.persistence.Entity;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
-import com.sun.prism.Material;
+import java.util.ArrayList;
 
 import org.hibernate.Session;
 
@@ -17,12 +16,13 @@ import org.hibernate.Session;
 public class MaterialDAO {
 
 	
-	public MaterialDAO()
-	{
+	
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session s = sessionFactory.openSession();
-		session.beginTransaction();	
-	}
+		public MaterialDAO()
+		{
+		s.beginTransaction();	
+		}
 	public ArrayList<Material> getAll()
 	{
 		ArrayList<Material>Materials = new ArrayList<Material>();
@@ -61,29 +61,29 @@ public class MaterialDAO {
 	}
 	public void addMaterial(String title,int ISBN, String author)
 	{
-		Material m = new Material(title,ISBN,author);
+		Material m = new Material();
+		m.setMaterial(title, ISBN, author);
 		s.save(m);
 	}
 	public void updateTitle(int id,String title)
 	{
 		Material m = (Material) s.load(Material.class, id);
-		Material.setTitle(title);
+		m.setTitle(title);
 		
 	}
 	public void updateISBN(int id,int ISBN)
 	{
 		Material m = (Material) s.load(Material.class, id);
-		Material.setISBN(ISBN);
+		m.setISBN(ISBN);
 		
 	}
 	public void updateauthor(int id,String author)
 	{
 		Material m = (Material) s.load(Material.class, id);
-		Material.setAuthor(author);
+		m.setAuthor(author);
 		
 	}
-	
-	
+		
 	public void finalize() {
 		   s.getTransaction().commit();
 		   s.close();

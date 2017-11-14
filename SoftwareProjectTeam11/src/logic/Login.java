@@ -14,6 +14,11 @@ public class Login {
 		this.loginId++;
 		Connect(username,password);
 	}
+	//deze zou eigenlijk niet mogen gebruikt door de gebruiker/andere klasses buiten de DAO's worden maar wordt gebruikt om een instantie te maken binnen MaterialDAO
+	public Login()
+	{
+	
+	}
 	
 	public int getLoginId() {
 		return loginId;
