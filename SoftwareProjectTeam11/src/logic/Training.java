@@ -1,13 +1,23 @@
 package logic;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
+
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Entity;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.Session;
 
 public class Training {
 	
 	private int trainingID;
-	private Locatie address;
-	private int duration;
+	private String trainingName;
+	private Address address;
+	private Time duration;
 	private String summary;
 	private Date date;
 	private ArrayList<Employee> employeeList = new ArrayList<Employee>();
@@ -16,7 +26,7 @@ public class Training {
 	private boolean isActief;
 	private Reminder reminder;
 	
-	public Training(int trainingID, Locatie address, int duration, String summary, Date date,
+	public Training(int trainingID, Locatie address, Time duration, String summary, Date date,
 			ArrayList<Employee> employeeList, ArrayList<Material> materialList, ArrayList<Certificat> certificatList,
 			boolean isActief, Reminder reminder) {
 		this.trainingID = trainingID;
@@ -30,6 +40,19 @@ public class Training {
 		this.isActief = isActief;
 		this.reminder = reminder;
 	}
+	
+	public Training() {
+		
+	}
+	
+	public void setTraining(int trainingId, Time duration, String summary, Date date, boolean visibility, String trainingName) {
+		this.setTrainingID(trainingId);
+		this.setDuration(duration);
+		this.setSummary(summary);
+		this.setDate(date);
+		this.setActief(visibility);
+		this.setTrainingName(trainingName);
+	}
 
 	public int getTrainingID() {
 		return trainingID;
@@ -37,16 +60,22 @@ public class Training {
 	public void setTrainingID(int trainingID) {
 		this.trainingID = trainingID;
 	}
-	public Locatie getAddress() {
+	public String getTrainingName() {
+		return trainingName;
+	}
+	public void setTrainingName(String trainingName) {
+		this.trainingName = trainingName;
+	}
+	public Address getAddress() {
 		return address;
 	}
-	public void setAddress(Locatie address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
-	public int getDuration() {
+	public Time getDuration() {
 		return duration;
 	}
-	public void setDuration(int duration) {
+	public void setDuration(Time duration) {
 		this.duration = duration;
 	}
 	public String getSummary() {
@@ -92,6 +121,26 @@ public class Training {
 		this.reminder = reminder;
 	}
 
+	public String showMaterialListForMail() {
+		String list = ""; 
+		list = list + "<ul>\n";
+		for (int i=0; i<materialList.size(); i++) {
+			list = list + "<li><p>" + materialList.get(i).getTite() + " - " + materialList.get(i).getAuthor() + " - " + materialList.get(i).getIsbn() + "</p></li>";
+		}
+		list = list + "</ul>\n";
+		return list;	
+	}
+	
+	public String showEmployeeListForMail() {
+		String list = ""; 
+		list = list + "<ul>\n";
+		for (int i=0; i<employeeList.size(); i++) {
+			list = list + "<li><p>" + employeeList.get(i).getNaam() + " - " + employeeList.get(i).getLeeftijd() + " jaar</p></li>";
+		}
+		list = list + "</ul>\n";
+		return list;	
+	}
+	
 	@Override
 	public String toString() {
 		return "Training [trainingID=" + trainingID + ", address=" + address + ", duration=" + duration + ", summary="
@@ -102,7 +151,7 @@ public class Training {
 	public boolean searchEmployee(Employee employee) {
 		
 		for (int i=0; i<employeeList.size(); i++) {
-			if (employeeList.get(i).getId() == employee.getId()) {
+			if (employeeList.get(i).getEmployeeId() == employee.getEmployeeId()) {
 				return true;
 			}
 		}
