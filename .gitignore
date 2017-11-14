@@ -1,7 +1,4 @@
+/.recommenders/
+/.classpath/
 /.metadata/
 /README.md/
-/.recommenders/
-
-.recommenders\
-.metadata\
-/.classpath/
