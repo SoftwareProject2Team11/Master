@@ -22,3 +22,5 @@ hs_err_pid*
 /README.md/
 .classpath/
 .DSSTORE/
+SoftwareProjectTeam11/hibernate.cfg.xml
+SoftwareProjectTeam11/.classpath
