@@ -25,7 +25,7 @@ public class LoginDAO {
 	{
 		ArrayList<Login>Logins = new ArrayList<Login>();
 		Login l = new Login();
-		l = (Login)s.get(Login.class);
+		l = (Login)s.get(Login.class,s);
 		Logins.add(l);
 		return Logins;
 	}

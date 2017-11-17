@@ -27,7 +27,7 @@ public class MaterialDAO {
 	{
 		ArrayList<Material>Materials = new ArrayList<Material>();
 		Material m = new Material();
-		m = (Material)s.get(Material.class);
+		m = (Material)s.get(Material.class,s);
 		Materials.add(m);
 		return Materials;
 	}
