@@ -26,7 +26,7 @@ public class TrainingDAO {
 	public ArrayList<Training> getAll() {
 		ArrayList<Training> trainings = new ArrayList<Training>();
 		Training t = new Training();
-		t = (Training)s.get(Training.class);
+		t = (Training)s.get(Training.class,s);
 		trainings.add(t);
 		return trainings;
 	}

@@ -19,7 +19,7 @@ public class ReminderDAO {
 	public ArrayList<Reminder> getAll(){
 		ArrayList<Reminder> reminders = new ArrayList<Reminder>();
 		Reminder r = new Reminder();
-		r = (Reminder) s.get(Reminder.class);
+		r = (Reminder) s.get(Reminder.class,s);
 		reminders.add(r);
 		return reminders;
 	}
