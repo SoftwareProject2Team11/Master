@@ -5,3 +5,6 @@ https://stackoverflow.com/questions/33085493/hash-a-password-with-sha-512-in-jav
 https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
 https://www.mkyong.com/java/java-sha-hashing-example/
 https://stackoverflow.com/questions/29814050/how-to-define-destructors
+https://www.youtube.com/watch?v=sHC8YgW21ho
+https://www.youtube.com/watch?v=HlT0P5w0o-Y&t=659s
+https://www.youtube.com/watch?v=1tmcevbpGDk
