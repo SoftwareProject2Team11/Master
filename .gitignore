@@ -1,8 +1,13 @@
+.metadata
+.recommenders
+.DS_Store
+
+
 .metadata/
 .recommenders/
-SoftwareProjectTeam11/.classpath
 
-.metadata/version.ini
+.metadata\
+.recommenders\
 
 .metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt
 
@@ -10,10 +15,14 @@ SoftwareProjectTeam11/.classpath
 
 .metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
 
-.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
-
 .metadata/.plugins/org.eclipse.core.resources/.projects/SoftwareProjectTeam11/.markers.snap
 
 .metadata/.plugins/org.eclipse.core.resources/.projects/SoftwareProjectTeam11/.indexes/e4/5e/history.index
 
 .metadata/.log
+.metadata/version.ini
+.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/segments.gen
+SoftwareProjectTeam11/.classpath
+.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml
+.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+.metadata/.plugins/org.eclipse.core.resources/.projects/SoftwareProjectTeam11/.syncinfo.snap
