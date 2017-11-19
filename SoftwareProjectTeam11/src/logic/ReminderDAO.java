@@ -10,41 +10,69 @@ import java.util.List;
 import org.hibernate.Session;
 
 public class ReminderDAO {
-	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-	Session s = sessionFactory.openSession();
-	public ReminderDAO(){
-		s.beginTransaction();	
-	}
 	
 	public ArrayList<Reminder> getAll(){
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();
+		
 		ArrayList<Reminder> reminders = new ArrayList<Reminder>();
 		Reminder r = new Reminder();
-		r = (Reminder) s.get(Reminder.class);
+		r = (Reminder) session.get(Reminder.class,session);
 		reminders.add(r);
+		
+		session.getTransaction().commit();
+		System.out.println("Statement Worked !");
+		session.close();
+		sessionfactory.close();
+		
 		return reminders;
 	}
 	
 	public void addReminder (int reminderId, Date reminderDate) {
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();
+		
 		Reminder r = new Reminder();
 		r.setReminder(reminderId, reminderDate);
-		s.save(r);
+		session.save(r);
+		
+		session.getTransaction().commit();
+		System.out.println("Statement Worked !");
+		session.close();
+		sessionfactory.close();
 	}
 	
 	public Reminder getTrainingById(int reminderId) {
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();
+		
 		Reminder t = new Reminder();
-		t = (Reminder)s.get(Reminder.class, reminderId);
+		t = (Reminder)session.get(Reminder.class, reminderId);
+		
+		session.getTransaction().commit();
+		System.out.println("Statement Worked !");
+		session.close();
+		sessionfactory.close();
+		
 		return t;
 	}
 	
 	public Reminder getTrainingByDate(int reminderDate) {
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();
+		
 		Reminder t = new Reminder();
-		t = (Reminder)s.get(Reminder.class, reminderDate);
+		t = (Reminder)session.get(Reminder.class, reminderDate);
+		
+		session.getTransaction().commit();
+		System.out.println("Statement Worked !");
+		session.close();
+		sessionfactory.close();
+		
 		return t;
 	}
-	
-	public void finalize() {
-		   s.getTransaction().commit();
-		   s.close();
-		   sessionFactory.close();
-		  }
 }
