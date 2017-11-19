@@ -16,67 +16,124 @@ import org.hibernate.criterion.CriteriaQuery;
 
 public class TrainingDAO {
 	
-	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-	Session s = sessionFactory.openSession();
-	public TrainingDAO()
-	{
-	s.beginTransaction();	
-	}
-	
 	public ArrayList<Training> getAll() {
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();	
+		
 		ArrayList<Training> trainings = new ArrayList<Training>();
 		Training t = new Training();
-		t = (Training)s.get(Training.class,s);
+		t = (Training)session.get(Training.class,session);
 		trainings.add(t);
+		
+		session.getTransaction().commit();
+		session.close();
+		sessionfactory.close();
+		
 		return trainings;
 	}
 	
 	public void addTraining(int trainingId, Time duration, String summary, Date date, boolean visibility, String trainingName) {
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();	
+		
 		Training t = new Training();
 		t.setTraining(trainingId, duration, summary, date, visibility, trainingName);
-		s.save(t);
+		session.save(t);
+		
+		session.getTransaction().commit();
+		session.close();
+		sessionfactory.close();
 	}
 	
 	public Training getTrainingById(int trainingId) {
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();	
+		
 		Training t = new Training();
-		t = (Training)s.get(Training.class, trainingId);
+		t = (Training)session.get(Training.class, trainingId);
+		
+		session.getTransaction().commit();
+		session.close();
+		sessionfactory.close();
+		
 		return t;
 	}
 	
 	public Training getTrainingByDuration(Time duration) {
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();	
+		
 		Training t = new Training();
-		t = (Training)s.get(Training.class, duration);
+		t = (Training)session.get(Training.class, duration);
+		
+		session.getTransaction().commit();
+		session.close();
+		sessionfactory.close();
+		
 		return t;
 	}
 	
 	public Training getTrainingBySummary(String summary) {
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();	
+		
 		Training t = new Training();
-		t = (Training)s.get(Training.class, summary);
+		t = (Training)session.get(Training.class, summary);
+		
+		session.getTransaction().commit();
+		session.close();
+		sessionfactory.close();
+		
 		return t;
 	}
 	
 	public Training getTrainingByDate(Date date) {
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();	
+		
 		Training t = new Training();
-		t = (Training)s.get(Training.class, date);
+		t = (Training)session.get(Training.class, date);
+		
+		session.getTransaction().commit();
+		session.close();
+		sessionfactory.close();
+		
 		return t;
 	}
 	
 	public Training getTrainingByVisibility(boolean visibility) {
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();	
+		
 		Training t = new Training();
-		t = (Training)s.get(Training.class, visibility);
+		t = (Training)session.get(Training.class, visibility);
+		
+		session.getTransaction().commit();
+		session.close();
+		sessionfactory.close();
+		
 		return t;
 	}
 	
 	public Training getTrainingByTrainingName(String trainingName) {
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();	
+		
 		Training t = new Training();
-		t = (Training)s.get(Training.class, trainingName);
+		t = (Training)session.get(Training.class, trainingName);
+		
+		session.getTransaction().commit();
+		session.close();
+		sessionfactory.close();
+		
 		return t;
 	}
-	
-	public void finalize() {
-		   s.getTransaction().commit();
-		   s.close();
-		   sessionFactory.close();
-		  }
-	
 }
