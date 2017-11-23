@@ -17,7 +17,7 @@ public class Training {
 	private int trainingID;
 	private String trainingName;
 	private Address address;
-	private Time duration;
+	private String duration;
 	private String summary;
 	private Date date;
 	private ArrayList<Employee> employeeList = new ArrayList<Employee>();
@@ -72,10 +72,10 @@ public class Training {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	public Time getDuration() {
+	public String getDuration() {
 		return duration;
 	}
-	public void setDuration(Time duration) {
+	public void setDuration(String duration) {
 		this.duration = duration;
 	}
 	public String getSummary() {
