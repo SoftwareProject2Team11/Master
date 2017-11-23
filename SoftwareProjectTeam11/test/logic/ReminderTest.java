@@ -44,7 +44,7 @@ public class ReminderTest {
 	@Test
 	public void testSetGetReminderDate() {
 		r1.setReminderDate(d1);
-		assertEquals(d1, r1.getReminderId());
+		assertEquals(d1, r1.getReminderDate());
 	}
 	
 	@Test
