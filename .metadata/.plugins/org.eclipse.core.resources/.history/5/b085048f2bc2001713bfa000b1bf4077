@@ -1,0 +1,16 @@
+package logic;
+
+public class Address {
+
+	private String streetname;
+	private int houseNumber;
+	private String city;
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+}
