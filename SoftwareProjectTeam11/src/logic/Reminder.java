@@ -26,7 +26,7 @@ public class Reminder {
 	
 	public void setReminder(int reminderId, Date reminderDate) {
 		this.setReminderId(reminderId);
-		this.setRinderDate(reminderDate);
+		this.setReminderDate(reminderDate);
 	}
 
 	public int getReminderId() {
@@ -37,11 +37,11 @@ public class Reminder {
 		this.reminderId = reminderId;
 	}
 
-	public Date getRinderDate() {
+	public Date getReminderDate() {
 		return reminderDate;
 	}
 
-	public void setRinderDate(Date rinderDate) {
+	public void setReminderDate(Date rinderDate) {
 		this.reminderDate = rinderDate;
 	}
 	
