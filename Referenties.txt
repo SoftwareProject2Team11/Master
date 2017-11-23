@@ -8,3 +8,4 @@ https://stackoverflow.com/questions/29814050/how-to-define-destructors
 https://www.youtube.com/watch?v=sHC8YgW21ho
 https://www.youtube.com/watch?v=HlT0P5w0o-Y&t=659s
 https://www.youtube.com/watch?v=1tmcevbpGDk
+https://stackoverflow.com/questions/5677470/java-why-is-the-date-constructor-deprecated-and-what-do-i-use-instead
