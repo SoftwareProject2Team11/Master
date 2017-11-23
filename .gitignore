@@ -1,5 +1,9 @@
 /.metadata/
 /README.md/
+<<<<<<< HEAD
 .DS_Store
 SoftwareProjectTeam11/.DS_Store
 SoftwareProjectTeam11/src/.DS_Store
+=======
+/.recommenders/
+>>>>>>> basil
