@@ -26,7 +26,7 @@ public class Training {
 	private boolean isActief;
 	private Reminder reminder;
 	
-	public Training(int trainingID, Address address, Time duration, String summary, Date date,
+	public Training(int trainingID, Address address, String duration, String summary, Date date,
 			ArrayList<Employee> employeeList, ArrayList<Material> materialList, ArrayList<Certificat> certificatList,
 			boolean isActief, Reminder reminder) {
 		this.trainingID = trainingID;
@@ -45,7 +45,7 @@ public class Training {
 		
 	}
 	
-	public void setTraining(int trainingId, Time duration, String summary, Date date, boolean visibility, String trainingName) {
+	public void setTraining(int trainingId, String duration, String summary, Date date, boolean visibility, String trainingName) {
 		this.setTrainingID(trainingId);
 		this.setDuration(duration);
 		this.setSummary(summary);
