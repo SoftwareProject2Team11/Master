@@ -26,7 +26,7 @@ public class Training {
 	private boolean isActief;
 	private Reminder reminder;
 	
-	public Training(int trainingID, Locatie address, Time duration, String summary, Date date,
+	public Training(int trainingID, Address address, Time duration, String summary, Date date,
 			ArrayList<Employee> employeeList, ArrayList<Material> materialList, ArrayList<Certificat> certificatList,
 			boolean isActief, Reminder reminder) {
 		this.trainingID = trainingID;
