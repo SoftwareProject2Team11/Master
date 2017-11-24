@@ -11,6 +11,7 @@ import org.junit.Test;
 
 public class TrainingTest {
 	private Training t1;
+	//private Training t2;
 	private Calendar cal;
 	private Address a1;
 	private Date d1;
@@ -33,6 +34,11 @@ public class TrainingTest {
 		//matList1 = new ArrayList<Material>();
 		//cerList1 = new ArrayList<Certificat>();
 		r1 = new Reminder();
+		/*
+		t2 = new Training(2, a1, "40", "test", d1,
+				empList1, matList1, cerList1,
+				true, r1);
+		*/
 	}
 
 	@Test
@@ -102,6 +108,19 @@ public class TrainingTest {
 		t1.setReminder(r1);
 		assertEquals(r1, t1.getReminder());
 	}
-	
-	//contructor test nog toevoegen
+	/*
+	@Test
+	public void testConstructorTraining() {
+		assertEquals("Error with getTrainingId", 2, t1.getTrainingID());
+		assertEquals("Error with getAddress", a1, t1.getAddress());
+		assertEquals("Error with getDuration", "40", t1.getDuration());
+		assertEquals("Error with getSummary", "test", t1.getSummary());
+		assertEquals("Error with getDate", d1, t1.getDate());
+		assertEquals("Error with getEmployeeList", empList1, t1.getEmployeeList());
+		assertEquals("Error with getMaterialList", matList1, t1.getMaterialList());
+		assertEquals("Error with getCertificatList", cerList1, t1.getCertificatList());
+		assertEquals("Error with isActief", true, t1.isActief());
+		assertEquals("Error with getReminder", r1, t1.getReminder());
+	}
+	*/
 }
