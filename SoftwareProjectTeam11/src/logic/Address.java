@@ -131,7 +131,7 @@ public class Address {
 	session.beginTransaction();
 
 	Query query = session.createQuery("FROM address WHERE streetname Like '%"+name+"%'");
-	Address a = query.getSingleResult();
+	Address a = (Address)query.uniqueResult();
 		
 		
 	//closing session
