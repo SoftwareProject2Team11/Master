@@ -4,14 +4,6 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Entity;
-
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.Session;
-
 public class Training {
 	
 	private int trainingID;
@@ -26,7 +18,7 @@ public class Training {
 	private boolean isActief;
 	private Reminder reminder;
 	
-	public Training(int trainingID, Locatie address, Time duration, String summary, Date date,
+	public Training(int trainingID, Address address, Time duration, String summary, Date date,
 			ArrayList<Employee> employeeList, ArrayList<Material> materialList, ArrayList<Certificat> certificatList,
 			boolean isActief, Reminder reminder) {
 		this.trainingID = trainingID;
@@ -125,13 +117,15 @@ public class Training {
 		String list = ""; 
 		list = list + "<ul>\n";
 		for (int i=0; i<materialList.size(); i++) {
-			list = list + "<li><p>" + materialList.get(i).getTite() + " - " + materialList.get(i).getAuthor() + " - " + materialList.get(i).getIsbn() + "</p></li>";
+			list = list + "<li><p>" + materialList.get(i).getTitle() + " - " + materialList.get(i).getAuthor() + " - " + materialList.get(i).getISBN() + "</p></li>";
 		}
 		list = list + "</ul>\n";
 		return list;	
 	}
 	
-	public String showEmployeeListForMail() {
+	//Wordt gedaan via Odata
+	/*
+	 * public String showEmployeeListForMail() {
 		String list = ""; 
 		list = list + "<ul>\n";
 		for (int i=0; i<employeeList.size(); i++) {
@@ -140,6 +134,7 @@ public class Training {
 		list = list + "</ul>\n";
 		return list;	
 	}
+	*/
 	
 	@Override
 	public String toString() {
