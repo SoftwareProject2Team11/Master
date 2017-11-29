@@ -96,6 +96,12 @@ public class Login {
 			System.out.println(this.output);
 		}
 	}
+	public String getOutputConnect()
+	{
+		
+	return this.output;	
 	
+	}
 	
 }
+
