@@ -15,6 +15,10 @@ public class Question {
 		this.questions = questions;
 	}
 
+	public Question() {
+		// Constructor Hibernate
+	}
+
 	public int getQuestionId() {
 		return questionId;
 	}

@@ -11,6 +11,7 @@ public class AddressDAO {
 	
 	public void addAddress(Address address)
 	{
+		
 	//opening session
 	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 	Session session = sessionFactory.openSession();
@@ -31,7 +32,8 @@ public class AddressDAO {
 	
 	public List<Address> getAllAddress()
 	{
-			//opening session
+		
+	//opening session
 	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 	Session session = sessionFactory.openSession();
 	session.beginTransaction();
@@ -52,7 +54,8 @@ public class AddressDAO {
 	
 	public Address getAddressById(int id)
 	{
-			//opening session
+		
+	//opening session
 	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 	Session session = sessionFactory.openSession();
 	session.beginTransaction();
@@ -73,7 +76,8 @@ public class AddressDAO {
 	
 	public Address getAddressByStreet(String name)
 	{
-			//opening session
+		
+	//opening session
 	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 	Session session = sessionFactory.openSession();
 	session.beginTransaction();
