@@ -17,5 +17,6 @@
 	<classpathentry kind="lib" path="JARs/mail jars/dsn-1.6.0.jar"/>
 	<classpathentry kind="lib" path="JARs/mail jars/javax.mail-1.6.0.jar"/>
 	<classpathentry kind="lib" path="JARs/mail jars/javax.mail-api-1.6.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
