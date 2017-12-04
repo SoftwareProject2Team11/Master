@@ -22,9 +22,6 @@ public class Login {
 		return loginId;
 	}
 
-	public void setLoginId(int loginId) {
-		this.loginId = loginId;
-	}
 
 	public String getUsername() {
 		return username;
