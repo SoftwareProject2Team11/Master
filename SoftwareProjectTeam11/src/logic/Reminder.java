@@ -45,6 +45,7 @@ public class Reminder {
 		this.reminderDate = rinderDate;
 	}
 	
+	/*
 public void sendReminder(Training training, String recipient) {
 		
 		final String username = "noreplythismail34@gmail.com";
@@ -100,7 +101,7 @@ public void sendReminder(Training training, String recipient) {
 											/* public String toStringForMail() {
 												return super.getPostal() + " " + super.getCity() + " - " + super.getStreet() + " " + super.getNumber() + " " + super.getBus();
 												}
-											 */
+											 
 												
 										"    <li><p>Duration: " + training.getDuration() + " hours</p></li>\n" + 
 									"</ul>\n" + 
@@ -129,5 +130,6 @@ public void sendReminder(Training training, String recipient) {
 			throw new RuntimeException("...Failed to send email...");
 		}
 	}
+	*/
 	
 }
