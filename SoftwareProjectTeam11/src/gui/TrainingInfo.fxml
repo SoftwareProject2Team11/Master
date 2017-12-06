@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:controller="gui.TrainingInfoController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <center>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+               <tabs>
+                  <Tab id="trainingsTab" fx:id="trainingTab" closable="false" style="-fx-font-size: 13;" text="Trainings">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <left>
+                              <SplitPane prefHeight="340.0" prefWidth="146.0" BorderPane.alignment="CENTER">
+                                 <items>
+                                    <VBox prefHeight="347.0" prefWidth="178.0" style="-fx-background-color: #2D3447; -fx-border-color: white;">
+                                       <children>
+                                          <JFXButton id="traininginfoMenu" fx:id="trainingInfoMenu" onAction="#trainingInfo" prefHeight="70.0" prefWidth="145.0" style="-fx-border-color: white;" text="Training Info" textFill="#00a398">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton id="createTrainingMenu" fx:id="createTrainingMenu" onAction="#createTrainingMenu" prefHeight="70.0" prefWidth="145.0" style="-fx-border-color: white;" text="Create New Training" textFill="#00a398">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton id="feedbackMenu" fx:id="feedbackMenu" onAction="#feedbackMenu" prefHeight="70.0" prefWidth="145.0" style="-fx-border-color: white;" text="Feedback" textFill="#00a398">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton id="createSurveyMenu" fx:id="createSurveyMenu" onAction="#createSurveyMenu" prefHeight="70.0" prefWidth="145.0" style="-fx-border-color: white;" text="Create Survey" textFill="#00a398">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </VBox>
+                                 </items>
+                              </SplitPane>
+                           </left>
+                           <center>
+                              <SplitPane dividerPositions="0.24477611940298508" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #2D3447; -fx-border-color: white;" BorderPane.alignment="CENTER">
+                                 <items>
+                                    <BorderPane prefHeight="72.0" prefWidth="452.0" SplitPane.resizableWithParent="false">
+                                       <top>
+                                          <Label prefHeight="37.0" prefWidth="249.0" text="Select a training to view more information" textFill="WHITE" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </top>
+                                       <center>
+                                          <ChoiceBox id="selectTraining" fx:id="selectTraining" prefHeight="25.0" prefWidth="356.0" BorderPane.alignment="TOP_CENTER" />
+                                       </center>
+                                       <right>
+                                          <Button id="viewSelectedTraining" fx:id="viewSelectedTraining" mnemonicParsing="false" onAction="#viewButton" text="View" BorderPane.alignment="TOP_RIGHT">
+                                             <BorderPane.margin>
+                                                <Insets right="20.0" />
+                                             </BorderPane.margin>
+                                          </Button>
+                                       </right>
+                                    </BorderPane>
+                                    <BorderPane prefHeight="207.0" prefWidth="452.0">
+                                       <center>
+                                          <TableView id="table" fx:id="table" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #00a398;" BorderPane.alignment="CENTER">
+                                            <columns>
+                                              <TableColumn id="trainerData" fx:id="trainerData" prefWidth="75.0" text="Trainer" />
+                                              <TableColumn id="locationData" fx:id="locationData" prefWidth="97.85711669921875" text="Location" />
+                                                <TableColumn id="dateData" fx:id="dateData" prefWidth="72.14288330078125" text="Date" />
+                                                <TableColumn id="timeData" fx:id="timeData" prefWidth="75.0" text="Time" />
+                                                <TableColumn id="courseMaterialData" fx:id="courseMaterialData" prefWidth="131.57147216796875" text="Course Material" />
+                                            </columns>
+                                          </TableView>
+                                       </center>
+                                    </BorderPane>
+                                 </items>
+                              </SplitPane>
+                           </center>
+                        </BorderPane>
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/training.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+                  <Tab id="employeesTab" fx:id="employeesTab" closable="false" style="-fx-font-size: 13;" text="Employees">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2D3447;" />
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/employees.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+                  <Tab id="statisticsTab" fx:id="statisticsTab" style="-fx-font-size: 13;" text="Statistics">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2D3447;" />
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/stats.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+                  <Tab id="inboxTab" fx:id="inboxTab" style="-fx-font-size: 13;" text="Inbox">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/mail.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2D3447;" />
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </center>
+         <top>
+            <BorderPane prefHeight="31.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <right>
+                  <JFXButton id="logout" fx:id="logoutButton" onAction="#logout" prefHeight="31.0" prefWidth="78.0" text="Logout" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/exit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </right>
+               <left>
+                  <JFXButton id="back" fx:id="backButton" onAction="#back" prefHeight="31.0" prefWidth="82.0" text="Go Back" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </left>
+            </BorderPane>
+         </top>
+      </BorderPane>
+   </children>
+</StackPane>

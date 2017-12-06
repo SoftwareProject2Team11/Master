@@ -29,9 +29,9 @@ public class DatabaseSingleton {
 
 			try {
 				connection = DriverManager.getConnection(
-						"jdbc:mysql://dt5.ehb.be/SP1_1617005",
-						"SP1_1617005",
-						"35192867");
+						"jdbc:mysql://dt5.ehb.be/SP2Team11",
+						"SP2Team11",
+						"QJC48w");
 
 			} catch (SQLException e) {
 				System.out.println("SQLException: " + e.getMessage());

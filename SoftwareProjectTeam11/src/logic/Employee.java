@@ -3,6 +3,8 @@ package logic;
 //import java.util.List;
 //import java.util.ArrayList;
 
+// ATM this has no DAO because we make use of ODATA to interact with the employees of the ERP
+// For the moment this is only uses for the training class
 public class Employee {
 
 	private int employeeId;
