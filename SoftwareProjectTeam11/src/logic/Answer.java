@@ -2,9 +2,17 @@ package logic;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table
 public class Answer {
-	
+	@Id
 	private int answerId;
+	private String answer;
 	private int questionId;
 	private ArrayList<String> answers;
 	
@@ -14,10 +22,13 @@ public class Answer {
 		this.questionId = questionId;
 		this.answers = answers;
 	}
-
+	
+	
 	public Answer() {
-		// Hibernate constructor
+		super();
+		//Hibernate
 	}
+
 
 	public int getAnswerId() {
 		return answerId;
@@ -43,6 +54,25 @@ public class Answer {
 		this.answers = answers;
 	}
 
+
+	public String getAnswer() {
+		return answer;
+	}
+
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
+
+	public Answer(int answerId, String answer, int questionId) {
+		super();
+		this.answerId = answerId;
+		this.answer = answer;
+		this.questionId = questionId;
+	}
+	
+	
 	
 
 }
