@@ -11,8 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import db.LoginDAO;
 
 public class Controller {
 	@FXML
@@ -30,29 +30,37 @@ public class Controller {
 	
 	public void checkLogin(ActionEvent event)throws IOException
 	{
-		
-			Parent passwordForgottenParent = FXMLLoader.load(getClass().getResource("homepage.fxml"));
-			Scene passwordForgottenScene = new Scene(passwordForgottenParent);
+			boolean check = new LoginDAO().checkLogin(usernameText.getText(), passwordText.getText());
+			if(check) {
+			Parent homepageParent = FXMLLoader.load(getClass().getResource("TrainingInfo.fxml"));
+			Scene homepageScene = new Scene(homepageParent);
 			
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-			window.setScene(passwordForgottenScene);
+			window.setScene(homepageScene);
 			window.setResizable(true);
 			window.setTitle("Homepage");
-			
-			Label l = (Label)passwordForgottenScene.lookup("#welcomeText");
-			l.setText("Welcome ");
+			/*
+			Label l = (Label)homepageScene.lookup("#welcomeText");
+			l.setText("Welcome ");*/
 
 			window.show();
+			}
+			else {
+				System.out.println("Wrong password!");
+				usernameText.deleteText(0, usernameText.getLength());
+				passwordText.deleteText(0, usernameText.getLength());
+			}
+			
 
 	}
 	
 	public void logout(ActionEvent event) throws IOException
 	{
-		Parent passwordForgottenParent = FXMLLoader.load(getClass().getResource("loginGUI.fxml"));
-		Scene passwordForgottenScene = new Scene(passwordForgottenParent);
+		Parent loginParent = FXMLLoader.load(getClass().getResource("loginGUI.fxml"));
+		Scene loginScene = new Scene(loginParent);
 		
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		window.setScene(passwordForgottenScene);
+		window.setScene(loginScene);
 		window.show();
 	}
 	public void getNewPassword(ActionEvent event) throws IOException
@@ -70,7 +78,7 @@ public class Controller {
 	{
 		
 		System.out.println(mailText.getText());
-		//sendMail("mailText.getText());
+		
 	}
 	
 }

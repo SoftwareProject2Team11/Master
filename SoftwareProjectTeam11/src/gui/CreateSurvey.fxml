@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CreateSurveyController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <BorderPane prefHeight="31.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <right>
+                  <JFXButton prefHeight="31.0" prefWidth="78.0" text="Logout" onAction="#logout" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img%20GUI/exit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </right>
+               <left>
+                  <JFXButton prefHeight="31.0" prefWidth="82.0" text="Go Back" BorderPane.alignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img%20GUI/back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </left>
+            </BorderPane>
+         </top>
+         <center>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+               <tabs>
+                  <Tab id="trainingTab" fx:id="trainingTab" closable="false" style="-fx-font-size: 13;" text="Trainings">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <left>
+                              <SplitPane prefHeight="340.0" prefWidth="146.0" BorderPane.alignment="CENTER">
+                                 <items>
+                                    <VBox prefHeight="347.0" prefWidth="178.0" style="-fx-background-color: #2D3447; -fx-border-color: white;">
+                                       <children>
+                                          <JFXButton id="traininginfoMenu" fx:id="traininginfoMenu" onAction="#trainingInfo" prefHeight="70.0" prefWidth="145.0" style="-fx-border-color: white;" text="Training Info" textFill="#00a398">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton id="createTrainingMenu" fx:id="createTrainingMenu" onAction="#createTrainingMenu" prefHeight="70.0" prefWidth="145.0" style="-fx-border-color: white;" text="Create New Training" textFill="#00a398">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton id="feedbackMenu" fx:id="feedbackMenu" onAction="#feedbackMenu" prefHeight="70.0" prefWidth="145.0" style="-fx-border-color: white;" text="Feedback" textFill="#00a398">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton id="createSurveyMenu" fx:id="createSurveyMenu" onAction="#createSurveyMenu" prefHeight="70.0" prefWidth="145.0" style="-fx-border-color: white;" text="Create Survey" textFill="#00a398">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </VBox>
+                                 </items>
+                              </SplitPane>
+                           </left>
+                           <center>
+                              <BorderPane prefHeight="340.0" prefWidth="474.0" style="-fx-background-color: #2D3447; -fx-border-color: white;" BorderPane.alignment="CENTER">
+                                 <center>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2D3447;" BorderPane.alignment="CENTER">
+                                      <content>
+                                          <BorderPane>
+                                             <center>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="1300.0" style="-fx-background-color: #2D3447;">
+                                                   <children>
+                                                      <Pane layoutX="-7.0" layoutY="-8.0" prefHeight="530.0" prefWidth="638.0">
+                                                         <children>
+                                                            <ChoiceBox id="ChooseTraining" fx:id="chooseTraining" layoutX="116.0" layoutY="30.0" prefHeight="25.0" prefWidth="277.0" />
+                                                            <Label layoutX="410.0" layoutY="34.0" prefHeight="17.0" prefWidth="97.0" text="Training Survey" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label layoutX="41.0" layoutY="124.0" text="Question 1:" textFill="WHITE" />
+                                                            <JFXTextField fx:id="question1" layoutX="116.0" layoutY="120.0" prefHeight="25.0" prefWidth="390.0" style="-fx-text-fill: white;" />
+                                                            <Label layoutX="41.0" layoutY="170.0" text="Question 2:" textFill="WHITE" />
+                                                            <JFXTextField fx:id="question2" layoutX="116.0" layoutY="166.0" prefHeight="25.0" prefWidth="390.0" style="-fx-text-fill: white;" />
+                                                            <Label layoutX="41.0" layoutY="209.0" text="Question 3:" textFill="WHITE" />
+                                                            <JFXTextField fx:id="question3" layoutX="116.0" layoutY="205.0" prefHeight="25.0" prefWidth="390.0" style="-fx-text-fill: white;" />
+                                                            <Label layoutX="41.0" layoutY="255.0" text="Question 4:" textFill="WHITE" />
+                                                            <JFXTextField fx:id="question4" layoutX="116.0" layoutY="251.0" prefHeight="25.0" prefWidth="390.0" style="-fx-text-fill: white;" />
+                                                            <Label layoutX="41.0" layoutY="298.0" text="Question 5:" textFill="WHITE" />
+                                                            <JFXTextField fx:id="question5" layoutX="116.0" layoutY="294.0" prefHeight="25.0" prefWidth="390.0" style="-fx-text-fill: white;" />
+                                                            <Button id="createSurveyButton" fx:id="createSurveyButton" alignment="CENTER" layoutX="244.0" layoutY="366.0" mnemonicParsing="false" onAction="#createSurvey" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #00a398;" text="Create Survey" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </AnchorPane>
+                                             </center>
+                                          </BorderPane>
+                                      </content>
+                                    </ScrollPane>
+                                 </center>
+                              </BorderPane>
+                           </center>
+                        </BorderPane>
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img%20GUI/training.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+                  <Tab id="employeeTab" fx:id="employeeTab" closable="false" style="-fx-font-size: 13;" text="Employees">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2D3447;" />
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img%20GUI/employees.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+                  <Tab id="statisticsTab" fx:id="statisticsTab" style="-fx-font-size: 13;" text="Statistics">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2D3447;" />
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img%20GUI/stats.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+                  <Tab id="inboxTab" fx:id="inboxTab" style="-fx-font-size: 13;" text="Inbox">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img%20GUI/mail.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2D3447;" />
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>
