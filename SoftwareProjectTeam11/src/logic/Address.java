@@ -1,19 +1,22 @@
 package logic;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-
-//@Entity
-//@Table(name="Address")
+@Entity
+@Table(name="Address")
 public class Address {
 	
-	//@Id
-	//@Column(name="addressId")
+	@Id
+	@Column(name="addressId")
 	private int AddressId;
-	//@Column(name="streetname")
+	@Column(name="streetname")
 	private String streetname;
-	//@Column(name="houseNumber)
+	@Column(name="houseNumber")
 	private int houseNumber;
-	//@Column(name="city")
+	@Column(name="city")
 	private String city;
 	
 	public Address() {
