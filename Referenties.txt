@@ -1,5 +1,8 @@
 Referenties
-
+https://www.youtube.com/watch?v=sHC8YgW21ho
+https://www.youtube.com/watch?v=HlT0P5w0o-Y&t=659s
+https://www.youtube.com/watch?v=1tmcevbpGDk
+https://stackoverflow.com/questions/5677470/java-why-is-the-date-constructor-deprecated-and-what-do-i-use-instead
 https://stackoverflow.com/questions/5531455/how-to-hash-some-string-with-sha256-in-java
 https://stackoverflow.com/questions/33085493/hash-a-password-with-sha-512-in-java
 https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
