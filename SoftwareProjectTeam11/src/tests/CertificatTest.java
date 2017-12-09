@@ -1,9 +1,10 @@
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
+package tests;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+//import static org.junit.jupiter.api.Assertions.*;
+
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,7 +17,7 @@ import logic.CertificatDAO;
 //Connection database
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
+//import java.sql.SQLException;
 /////////////////////////////////////////////////////////
 
 
@@ -76,17 +77,17 @@ public void testIt() throws Exception{
 	CertificatDAO certificatDao = new CertificatDAO();
 	  try{
 		  
-		  // certificatDao.addNewCert("1", "one");
-		  //certificatDao.addNewCert("2", "two");
+		  //  certificatDao.addNewCert("1", "one");
+		  //  certificatDao.addNewCert("2", "two");
 
-		  // assertEquals("one", certificatDao.readABC("1"));
-		  // assertEquals("two", certificatDao.readABC("2"));
+		  //  assertEquals("one", certificatDao.readABC("1"));
+		  //  assertEquals("two", certificatDao.readABC("2"));
 
 
 		  //  certificatDao.updateCertName("1", "oneOne");
 		  //  certificatDao.updateCertName("2", "twoTwo");
 
-		  // assertEquals("oneOne", certificatDao.readABC("1"));
+		  //  assertEquals("oneOne", certificatDao.readABC("1"));
 		  //  assertEquals("twoTwo", certificatDao.readABC("2"));
 
 		   

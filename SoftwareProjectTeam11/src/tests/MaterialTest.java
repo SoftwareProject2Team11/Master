@@ -1,4 +1,4 @@
-package test;
+package tests;
 
 import static org.junit.Assert.*;
 
@@ -13,6 +13,7 @@ import logic.Material;
 public class MaterialTest {
 	private Material m1;
 	private Material m2;
+	
 	@Before
 	public void setUp(){
 		m1 = new Material();
@@ -42,8 +43,9 @@ public class MaterialTest {
 		assertEquals("Titlebook",m2.getTitle());	
 	}
 	@Test
-	public void testConstructor() {
-		assertEquals("Error with getMaterialID", m2.getMaterialID());
+	public void testConstructorMaterial() {
+		assertEquals("Error with getMaterialID", 1, m2.getMaterialID());
+		
 	}
 
 }
