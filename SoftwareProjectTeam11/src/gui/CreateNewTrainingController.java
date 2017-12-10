@@ -1,6 +1,11 @@
 package gui;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.Time;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTimePicker;
@@ -17,6 +22,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import logic.Address;
+import logic.AddressDAO;
+import logic.Location;
+import logic.Training;
+import logic.TrainingDAO;
+import logic.LocationDAO;
 
 public class CreateNewTrainingController {
 
@@ -38,6 +49,8 @@ public class CreateNewTrainingController {
 	private Label trainerName;
 	@FXML
 	private TextField fillInTrainerName;
+	@FXML 
+	private TextField description;
 	@FXML
 	private Label startDate;
 	@FXML
@@ -224,6 +237,35 @@ public class CreateNewTrainingController {
 	public void save()
 	{
 		//save the training
+		Training t = null;
+		String name = fillInTrainerName.getText();
+		String desc = description.getText();
+		String trainer = fillInTrainerName.getText();
+		String email = fillInTrainerEmail.getText();
+		String street = fillInStreetName.getText();
+		String city = fillInCity.getText();
+		String country = fillInCountry.getText();
+		String houseNumber = fillInStreetNumber.getText();
+		int number = Integer.parseInt(houseNumber);
+		String postalCode= fillInPostalCode.getText();
+		LocalDate beginDate = chooseDate.getValue();
+		LocalTime beginTime = chooseStartTime.getValue();
+		LocalTime eindTime = chooseEndTime.getValue();
+	//	int id = (Integer) null;
+		Duration duration = Duration.between(eindTime, beginTime);
+		System.out.println(duration);
+		Address a = new Address(Integer.parseInt(""),street,number,city);
+		new AddressDAO().addAddress(a);
+		Address b = new AddressDAO().getAddressByStreet(a.getStreetname());
+		
+		Location l = new Location(new Integer(null),b.getAddressId(),"EHB","test");
+		new LocationDAO().addLocation(l);
+		Location l2 = new LocationDAO().getLocationName(l.getLocationName());
+		
+		t = new Training(new Integer(null), l2.getLocationId(), name,duration,beginDate,desc, true ); 
+		new TrainingDAO().addTrainingWithConstructor(t);
+		
+		
 	}
 	
 	

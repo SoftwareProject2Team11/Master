@@ -45,6 +45,7 @@
          <mapping class="logic.Reminder"/>
          <mapping class="logic.Survey"/>
          <mapping class="logic.Training"/>
+         <mapping class="logic.Location"/>
         
         
 	 
