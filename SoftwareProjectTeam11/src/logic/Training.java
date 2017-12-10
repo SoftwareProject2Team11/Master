@@ -1,10 +1,19 @@
 package logic;
 
 import java.sql.Time;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Training {
+	
+	// voor gui
+	private int locationID;
+	private Duration dur;
+	private LocalDate datum;
+	
 	
 	private int trainingID;
 	private String trainingName;
@@ -37,6 +46,19 @@ public class Training {
 		
 	}
 	
+
+//Voor gui
+	public Training(int trainingID,int locationID, String trainingName, Duration dur,  LocalDate datum,String summary, boolean isActief) {
+		super();
+		this.trainingID = trainingID;
+		this.trainingName = trainingName;
+		this.dur = dur;
+		this.summary = summary;
+		this.datum = datum;
+		this.isActief = isActief;
+		this.locationID=locationID;
+	}
+
 	public void setTraining(int trainingId, Time duration, String summary, Date date, boolean visibility, String trainingName) {
 		this.setTrainingID(trainingId);
 		this.setDuration(duration);
@@ -45,6 +67,19 @@ public class Training {
 		this.setActief(visibility);
 		this.setTrainingName(trainingName);
 	}
+	
+	
+	// Voor gui
+	
+	public int getLocationId()
+	{
+		return locationID;
+	}
+	public void setLocationId(int locationId)
+	{
+		this.locationID=locationId;
+	}
+	
 
 	public int getTrainingID() {
 		return trainingID;

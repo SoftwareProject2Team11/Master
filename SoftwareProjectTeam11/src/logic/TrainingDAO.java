@@ -136,4 +136,18 @@ public class TrainingDAO {
 		
 		return t;
 	}
+	
+	// Voor gui
+	public void addTrainingWithConstructor(Training t) {
+		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionfactory.openSession();
+		session.beginTransaction();	
+		
+		
+		session.save(t);
+		
+		session.getTransaction().commit();
+		session.close();
+		sessionfactory.close();
+	}
 }

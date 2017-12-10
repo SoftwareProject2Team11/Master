@@ -1,6 +1,8 @@
 package gui;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +16,10 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import logic.Location;
+import logic.LocationDAO;
+import logic.Training;
+import logic.TrainingDAO;
 
 public class TrainingInfoController {
 
@@ -61,6 +67,16 @@ public class TrainingInfoController {
 	public void initializer()
 	{
 		//getAllTrainingen() into choicebox selectTraining
+		
+		ArrayList<Training> trainingen = new TrainingDAO().getAll();
+		
+		for (Training training : trainingen) {
+			trainerData.setText(training.getTrainingName());
+			Location l = new LocationDAO().getLocationById(training.getLocationId());
+			locationData.setText(l.getLocationDetails());
+			dateData.setText(String.valueOf(training.getDuration()));
+			courseMaterialData.setText(training.getTrainingName());
+		}
 	}
 	@FXML 
 	public void viewButton()

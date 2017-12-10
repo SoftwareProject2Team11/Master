@@ -23,7 +23,7 @@ public class CertificatDAO {
 		 //Statement
 		 Certificat certificat = new Certificat();
 		 certificat = (Certificat) session.get(Certificat.class, certificatId);
-		 System.out.println("The Certificate with id " + certificatId + " is " + certificat.getCertificatName()); 
+		 
 		 
 		 //Close Session
 		 session.getTransaction().commit();

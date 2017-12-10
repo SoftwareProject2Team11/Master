@@ -6,7 +6,6 @@
 <?import com.jfoenix.controls.JFXTimePicker?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
@@ -24,7 +23,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:controller="gui.CreateNewTrainingController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CreateNewTrainingController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <top>
@@ -101,7 +100,7 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField id="FillInTrainerName" fx:id="fillInTrainerName" layoutX="136.0" layoutY="96.0" onAction="#fillInTrainerName" prefHeight="25.0" prefWidth="163.0" promptText="Name trainer" />
+                                                <TextField id="FillInTrainerName" fx:id="fillInTrainerName" layoutX="113.0" layoutY="95.0" onAction="#fillInTrainerName" prefHeight="25.0" prefWidth="163.0" promptText="Name trainer" />
                                                 <Label id="StartDate" fx:id="startDate" layoutX="17.0" layoutY="364.0" text="Date" textFill="WHITE">
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
@@ -118,14 +117,14 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField id="FillInStreetNumber" fx:id="fillInStreetNumber" layoutX="438.0" layoutY="200.0" onAction="#fillInStreetNumber" prefHeight="25.0" prefWidth="55.0" />
-                                                <TextField id="FillInTrainerEmail" fx:id="fillInTrainerEmail" alignment="TOP_LEFT" layoutX="437.0" layoutY="97.0" onAction="#fillInTrainerEmail" prefHeight="25.0" prefWidth="202.0" promptText="Email trainer " />
+                                                <TextField id="FillInStreetNumber" fx:id="fillInStreetNumber" layoutX="438.0" layoutY="200.0" onAction="#fillInStreetNumber" prefHeight="25.0" prefWidth="83.0" />
+                                                <TextField id="FillInTrainerEmail" fx:id="fillInTrainerEmail" alignment="TOP_LEFT" layoutX="438.0" layoutY="95.0" onAction="#fillInTrainerEmail" prefHeight="25.0" prefWidth="202.0" promptText="Email trainer " />
                                                 <Label id="TrainingName" fx:id="trainingName" layoutX="55.0" layoutY="55.0" text="Training:" textFill="WHITE">
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField id="FillInTrainingName" fx:id="fillInTrainingName" alignment="TOP_LEFT" layoutX="135.0" layoutY="50.0" onAction="#fillInTrainingName" prefHeight="25.0" prefWidth="217.0" promptText="Name training" />
+                                                <TextField id="FillInTrainingName" fx:id="fillInTrainingName" alignment="TOP_LEFT" layoutX="113.0" layoutY="51.0" onAction="#fillInTrainingName" prefHeight="25.0" prefWidth="217.0" promptText="Name training" />
                                                 <Label id="City" fx:id="city" layoutX="56.0" layoutY="243.0" text="City:" textFill="WHITE">
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
@@ -143,15 +142,8 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField id="FillInCountry" fx:id="fillInCountry" layoutX="133.0" layoutY="282.0" onAction="#fillInCountry" prefHeight="25.0" prefWidth="166.0" />
-                                                <Label id="EmailTrainer" fx:id="emailTrainer" layoutX="377.0" layoutY="99.0" text="Email:" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="System Bold" size="12.0" />
-                                                   </font>
-                                                </Label>
-                                                <CheckBox id="CheckDaily" fx:id="checkDaily" layoutX="685.0" layoutY="381.0" mnemonicParsing="false"  prefHeight="24.0" prefWidth="76.0" text="Daily" textFill="WHITE" />
-                                                <CheckBox id="CheckWeekly" fx:id="checkWeekly" layoutX="685.0" layoutY="418.0" mnemonicParsing="false" text="Weekly" textFill="WHITE" />
-                                                <Label id="Repeat" fx:id="repeat" layoutX="684.0" layoutY="356.0" text="Repeat" textFill="WHITE">
+                                                <TextField id="FillInCountry" fx:id="fillInCountry" layoutX="133.0" layoutY="282.0" onAction="#fillInCountry" prefHeight="25.0" prefWidth="185.0" />
+                                                <Label id="EmailTrainer" fx:id="emailTrainer" layoutX="357.0" layoutY="99.0" text="Email:" textFill="WHITE">
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
@@ -166,7 +158,6 @@
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
                                                 </Label>
-                                                <JFXDatePicker id="enddate" fx:id="chooseEndDate" layoutX="770.0" layoutY="439.0"  promptText="Enddate" style="-fx-text-inner-color: white;" />
                                                 <Label layoutX="14.0" layoutY="160.0" prefHeight="34.0" prefWidth="163.0" text="Location" textFill="#767676" underline="true">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
@@ -192,50 +183,26 @@
                                                             <Insets left="20.0" />
                                                          </padding>
                                                       </JFXTimePicker>
-                                                      <JFXTimePicker id="Endtime" fx:id="chooseEndTime"  prefHeight="25.0" prefWidth="155.0" promptText="Endtime" style="-fx-text-inner-color: white;" GridPane.columnIndex="2">
+                                                      <JFXTimePicker id="Endtime" fx:id="chooseEndTime" prefHeight="25.0" prefWidth="155.0" promptText="Endtime" style="-fx-text-inner-color: white;" GridPane.columnIndex="2">
                                                          <padding>
                                                             <Insets left="20.0" />
                                                          </padding>
                                                       </JFXTimePicker>
-                                                      <JFXDatePicker id="chooseDate" fx:id="chooseDate" overLay="true" prefHeight="35.0" prefWidth="173.0" promptText="Choose date" showWeekNumbers="true" style="-fx-text-inner-color: white; -fx-prompt-text-fill: white;" GridPane.rowIndex="1" />
-                                                      <JFXTimePicker id="chooseStarttime" fx:id="chooseStarttime"  prefHeight="25.0" prefWidth="157.0" promptText="Starttime" style="-fx-text-inner-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                                         <padding>
-                                                            <Insets left="20.0" />
-                                                         </padding>
-                                                      </JFXTimePicker>
-                                                      <JFXTimePicker id="chooseEndtime" fx:id="chooseEndtime" prefHeight="25.0" prefWidth="165.0" promptText="Endtime" style="-fx-text-inner-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                                                         <padding>
-                                                            <Insets left="20.0" />
-                                                         </padding>
-                                                      </JFXTimePicker>
-                                                      <Button id="add" fx:id="addButton" alignment="CENTER" mnemonicParsing="false" onAction="#add" prefHeight="27.0" prefWidth="7.0" style="-fx-background-color: #2E8B57;" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                                                         <graphic>
-                                                            <ImageView fitHeight="19.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@img/add.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </graphic>
-                                                      </Button>
-                                                      <Button id="remove" fx:id="removeButton" mnemonicParsing="false" onAction="#remove" prefHeight="27.0" prefWidth="8.0" style="-fx-background-color: #B22222;" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                                                         <graphic>
-                                                            <ImageView fitHeight="19.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@img/remove.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </graphic>
-                                                      </Button>
                                                    </children>
                                                 </GridPane>
-                                                <Label layoutX="723.0" layoutY="443.0" text="Untill" textFill="WHITE" />
-                                                <JFXComboBox id="chooseBook" fx:id="bookComboBox" editable="true" focusColor="#009688" layoutX="25.0" layoutY="524.0"  prefHeight="25.0" prefWidth="161.0" style="-fx-prompt-text-fill: white;" unFocusColor="#7e7d7d" />
+                                                <JFXComboBox id="chooseBook" fx:id="bookComboBox" editable="true" focusColor="#009688" layoutX="25.0" layoutY="524.0" prefHeight="25.0" prefWidth="161.0" style="-fx-prompt-text-fill: white;" unFocusColor="#7e7d7d" />
                                                 <Label layoutX="11.0" layoutY="6.0" prefHeight="34.0" prefWidth="163.0" text="Training information" textFill="#767676" underline="true">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <Button id="saveButton" fx:id="saveButton" layoutX="18.0" layoutY="578.0" mnemonicParsing="false" onAction="#save" text="Save" />
+                                                <TextField id="FillInTrainingName" fx:id="description" alignment="TOP_LEFT" layoutX="438.0" layoutY="51.0" prefHeight="25.0" prefWidth="217.0" promptText="Name training" />
+                                                <Label id="TrainingName" fx:id="trainingName1" layoutX="357.0" layoutY="55.0" text="Description: " textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
                                           </Pane>
                                        </content>
