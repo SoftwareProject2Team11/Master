@@ -60,7 +60,7 @@ public class ReminderDAO {
 		return t;
 	}
 	
-	public Reminder getTrainingByDate(int reminderDate) {
+	public Reminder getTrainingByDate(int reminderDate) { //Moet naar Date veranderd worden
 		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionfactory.openSession();
 		session.beginTransaction();

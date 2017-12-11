@@ -21,8 +21,8 @@ public class CertificatDAO {
 		 session.beginTransaction();
 		 
 		 //Statement
-		 Certificat certificat = new Certificat();
-		 certificat = (Certificat) session.get(Certificat.class, certificatId);
+		 Certificat c = new Certificat();
+		 c = (Certificat) session.get(Certificat.class, certificatId);
 		 
 		 
 		 //Close Session
@@ -32,7 +32,7 @@ public class CertificatDAO {
 		 sessionfactory.close();
 	 }
 	 
-	 void addNewCert(String certificatName, boolean result) { 
+	 void addNewCert(Certificat certificat) { 
 		 
 		 //Open Session
 		 SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
@@ -40,8 +40,8 @@ public class CertificatDAO {
 		 session.beginTransaction();
 		 
 		//Statement
-		 Certificat newCertificat = new Certificat(certificatName, result);
-		 session.save(newCertificat);
+		
+		 session.save(certificat);
 		 
 		//Close Session
 		 session.getTransaction().commit();
@@ -89,8 +89,8 @@ public class CertificatDAO {
 		 
 	 }
 	 
-
-	 void updateCertResult(int certificatId, boolean newResult) { //CHECK THIS AGAIN result must first be changed to Boolean
+/*
+	 void updateCertResult(int certificatId, int newResult) { 
 		 
 		 //Open Session
 		 SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
@@ -112,7 +112,7 @@ public class CertificatDAO {
 		 sessionfactory.close();
 	 }
 	
-	 
+	 */
 	 void updateCertName(int certificatId, String certificatName){
 		 
 		 //Open Session

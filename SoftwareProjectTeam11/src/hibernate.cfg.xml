@@ -38,7 +38,7 @@
          <mapping class="logic.Address"/>
          <mapping class="logic.Answer"/>
          <mapping class="logic.Certificat"/>
-         <mapping class="logic.Employee"/>
+        <!-- <mapping class="logic.Employee"/> -->
          <mapping class="logic.Login"/>
          <mapping class="logic.Material"/>
          <mapping class="logic.Question"/>
