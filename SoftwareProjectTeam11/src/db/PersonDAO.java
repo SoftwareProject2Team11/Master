@@ -1,7 +1,7 @@
 /**
  * 
  */
-package logic;
+package db;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.CriteriaQuery;
+
+import logic.Person;
 
 /**
  * @author Katrien

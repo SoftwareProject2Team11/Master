@@ -1,4 +1,4 @@
-package logic;
+package db;
 
 import java.util.List;
 
@@ -6,6 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+
+import logic.Address;
 
 public class AddressDAO {
 	
