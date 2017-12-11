@@ -1,6 +1,13 @@
 package logic;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Material")
 public class Material {
+	@Id
 	private int materialID;
 	private String title;
 	private int ISBN;
