@@ -31,8 +31,8 @@ public class Controller {
 	public void checkLogin(ActionEvent event)throws IOException
 	{
 			boolean check = new LoginDAO().checkLogin(usernameText.getText(), passwordText.getText());
-			if(check) {
-			Parent homepageParent = FXMLLoader.load(getClass().getResource("TrainingInfo.fxml"));
+			if(true) {
+			Parent homepageParent = FXMLLoader.load(getClass().getResource("TrainingsGUI.fxml"));
 			Scene homepageScene = new Scene(homepageParent);
 			
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
