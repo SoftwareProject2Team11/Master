@@ -3,6 +3,7 @@ package logic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import db.CertificatDAO;
 
 @Entity
 @Table
