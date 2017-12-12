@@ -84,14 +84,14 @@ public class TrainingsController {
 		 begin.setCellValueFactory(new Callback<CellDataFeatures<Training, String>, ObservableValue<String>>() {
 			@Override
 			public ObservableValue<String> call(CellDataFeatures<Training, String> data) {
-				return new SimpleStringProperty(data.getValue().getBeginDatum());
+				return new SimpleStringProperty(data.getValue().getstartDate());
 			}
 		});
 		
 		 end.setCellValueFactory(new Callback<CellDataFeatures<Training, String>, ObservableValue<String>>() {
 				@Override
 				public ObservableValue<String> call(CellDataFeatures<Training, String> data) {
-					return new SimpleStringProperty(data.getValue().getEindDatum());
+					return new SimpleStringProperty(data.getValue().getendDate());
 				}
 			});
 		 

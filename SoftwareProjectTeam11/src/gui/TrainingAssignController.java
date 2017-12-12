@@ -147,7 +147,7 @@ public class TrainingAssignController {
 		{
 			String selectedTraining = trainingList.getSelectionModel().getSelectedItem();
 			String selectedEmployee = employeeList.getSelectionModel().getSelectedItem();
-
+			
 			
 		}
 		
