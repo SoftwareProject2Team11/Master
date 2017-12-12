@@ -1,4 +1,4 @@
-package logic;
+package db;
 
 import java.util.List;
 
@@ -7,9 +7,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-public class AddressDAO {
+import logic.Training;
+
+public class TrainingDAO {
 	
-	public void addAddress(Address address)
+	public void addTraining(Training training)
 	{
 		
 	//opening session
@@ -18,7 +20,7 @@ public class AddressDAO {
 	session.beginTransaction();
 	
 	
-	session.save(address);
+	session.save(training);
 		
 		
 	//closing session
@@ -29,8 +31,7 @@ public class AddressDAO {
 		
 	}
 	
-	
-	public List<Address> getAllAddress()
+	public List<Training> getAll()
 	{
 		
 	//opening session
@@ -39,8 +40,9 @@ public class AddressDAO {
 	session.beginTransaction();
 	
 	
-	Query query = session.createQuery("FROM Address");
-	List<Address> lijst = query.list();
+	@SuppressWarnings("unchecked")
+	Query<Training> query = session.createQuery("FROM Training WHERE visibility = 1");
+	List<Training> lijst = query.list();
 		
 		
 	//closing session
@@ -52,16 +54,16 @@ public class AddressDAO {
 	return lijst;
 	}
 	
-	public Address getAddressById(int id)
+	public Training getTrainingById(int id)
 	{
 		
 	//opening session
 	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 	Session session = sessionFactory.openSession();
 	session.beginTransaction();
-	Address a = new Address();
+	Training t = new Training();
 	
-	a = (Address)session.get(Address.class,id);
+	t = (Training)session.get(Training.class,id);
 
 		
 		
@@ -71,29 +73,7 @@ public class AddressDAO {
 	session.close();
 	sessionFactory.close();
 	
-	return a;
+	return t;
 	}
-	
-	public Address getAddressByStreet(String name)
-	{
-		
-	//opening session
-	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-	Session session = sessionFactory.openSession();
-	session.beginTransaction();
-
-	Query query = session.createQuery("FROM Address WHERE streetname Like '%"+name+"%'");
-	Address a = (Address) query.uniqueResult();
-		
-		
-	//closing session
-	session.getTransaction().commit();
-	System.out.println("Statement Worked!");
-	session.close();
-	sessionFactory.close();
-	return a;
-	}
-	
-	
 
 }

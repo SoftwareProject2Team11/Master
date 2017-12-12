@@ -1,4 +1,5 @@
-package tests;
+/*
+ * package tests;
 
 //import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,7 +12,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import logic.CertificatDAO;
+import db.CertificatDAO;
 
 /////////////////////////////////////////////////////////
 //Connection database
@@ -103,3 +104,5 @@ public void testIt() throws Exception{
 	 getConnection();
 }
 }
+
+*/

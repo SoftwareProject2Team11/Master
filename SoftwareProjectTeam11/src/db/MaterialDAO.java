@@ -1,4 +1,4 @@
-package logic;
+package db;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+import logic.Material;
+
 import java.util.ArrayList;
 
 import org.hibernate.Session;
@@ -52,7 +55,7 @@ public class MaterialDAO {
 		
 		   return m;
 	}
-	public ArrayList<Material> getItemBytitle(String title)
+	public ArrayList<Material> getItemBytitle(String title)///-
 	{
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session s = sessionFactory.openSession();

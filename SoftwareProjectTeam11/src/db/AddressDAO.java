@@ -1,13 +1,17 @@
-package logic;
+package db;
+
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-public class LocationDAO {
+import logic.Address;
+
+public class AddressDAO {
 	
-	public void addLocation(Location location)
+	public void addAddress(Address address)
 	{
 		
 	//opening session
@@ -16,7 +20,7 @@ public class LocationDAO {
 	session.beginTransaction();
 	
 	
-	session.save(location);
+	session.save(address);
 		
 		
 	//closing session
@@ -27,7 +31,8 @@ public class LocationDAO {
 		
 	}
 	
-	public Location getLocationById(int id)
+	
+	public List<Address> getAllAddress()
 	{
 		
 	//opening session
@@ -35,10 +40,9 @@ public class LocationDAO {
 	Session session = sessionFactory.openSession();
 	session.beginTransaction();
 	
-	Location l = new Location();
 	
-
-	l = (Location)session.get(Location.class, id);
+	Query query = session.createQuery("FROM Address");
+	List<Address> lijst = query.list();
 		
 		
 	//closing session
@@ -47,10 +51,32 @@ public class LocationDAO {
 	session.close();
 	sessionFactory.close();
 	
-	return l;
+	return lijst;
 	}
 	
-	public Location getLocationName(String name)
+	public Address getAddressById(int id)
+	{
+		
+	//opening session
+	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+	Session session = sessionFactory.openSession();
+	session.beginTransaction();
+	Address a = new Address();
+	
+	a = (Address)session.get(Address.class,id);
+
+		
+		
+	//closing session
+	session.getTransaction().commit();
+	System.out.println("Statement Worked!");
+	session.close();
+	sessionFactory.close();
+	
+	return a;
+	}
+	
+	public Address getAddressByStreet(String name)
 	{
 		
 	//opening session
@@ -58,8 +84,8 @@ public class LocationDAO {
 	Session session = sessionFactory.openSession();
 	session.beginTransaction();
 
-	Query query = session.createQuery("FROM Location WHERE locationName Like '%"+name+"%'");
-	Location a = (Location) query.uniqueResult();
+	Query query = session.createQuery("FROM Address WHERE streetname Like '%"+name+"%'");
+	Address a = (Address) query.uniqueResult();
 		
 		
 	//closing session
@@ -69,5 +95,7 @@ public class LocationDAO {
 	sessionFactory.close();
 	return a;
 	}
+	
+	
 
 }

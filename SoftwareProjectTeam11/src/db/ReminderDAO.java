@@ -1,26 +1,40 @@
-package logic;
+package db;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+import logic.Reminder;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+
 import org.hibernate.Session;
 
 public class ReminderDAO {
 	
-	public ArrayList<Reminder> getAll(){
+	public List<Reminder> getAll(){
+		
+		//opening session
 		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionfactory.openSession();
 		session.beginTransaction();
-		
+		/*
 		ArrayList<Reminder> reminders = new ArrayList<Reminder>();
 		Reminder r = new Reminder();
 		r = (Reminder) session.get(Reminder.class,session);
 		reminders.add(r);
+		*/
 		
+		//statement
+		Query query = session.createQuery("From Reminder");
+		List<Reminder> reminders = query.list();
+		
+		
+		//closing session
 		session.getTransaction().commit();
 		System.out.println("Statement Worked !");
 		session.close();
@@ -44,14 +58,18 @@ public class ReminderDAO {
 		sessionfactory.close();
 	}
 	
-	public Reminder getTrainingById(int reminderId) {
+	public Reminder getTrainingById(int reminderId){
+		
+		//opening session
 		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionfactory.openSession();
 		session.beginTransaction();
 		
+		//statement
 		Reminder t = new Reminder();
 		t = (Reminder)session.get(Reminder.class, reminderId);
 		
+		//closing session
 		session.getTransaction().commit();
 		System.out.println("Statement Worked !");
 		session.close();
@@ -60,7 +78,8 @@ public class ReminderDAO {
 		return t;
 	}
 	
-	public Reminder getTrainingByDate(int reminderDate) { //Moet naar Date veranderd worden
+	/*
+	public Reminder getTrainingByDate( reminderDate) { //Moet naar Date veranderd worden
 		SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionfactory.openSession();
 		session.beginTransaction();
@@ -75,4 +94,5 @@ public class ReminderDAO {
 		
 		return t;
 	}
+	*/
 }

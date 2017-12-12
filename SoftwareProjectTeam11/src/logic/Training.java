@@ -1,236 +1,113 @@
 package logic;
 
-import java.sql.Time;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name="Training")
 public class Training {
 	
-	// voor gui
-	private int locationID;
-	private Duration dur;
-	private LocalDate datum;
-	
-	
-	private int trainingID;
+	@Id
+	@Column(name="addressId")
+	private int trainingId;
+	@Column(name="locationId")
+	private int locationId;
+	@Column(name="beginDatum")
+	private String beginDatum;
+	@Column(name="eindDatum")
+	private String eindDatum;
+	@Column(name="trainingName")
 	private String trainingName;
-	private Address address;
-	private Time duration;
-	private String summary;
-	private Date date;
-	private ArrayList<Employee> employeeList = new ArrayList<Employee>();
-	private ArrayList<Material> materialList = new ArrayList<Material>();
-	private ArrayList<Certificat> certificatList = new ArrayList<Certificat>();
-	private boolean isActief;
-	private Reminder reminder;
+	@Column(name="trainingSummary")
+	private String trainingSummary;
+	@Column(name="visibility")
+	private int visibility;
 	
-	public Training(int trainingID, Address address, Time duration, String summary, Date date,
-			ArrayList<Employee> employeeList, ArrayList<Material> materialList, ArrayList<Certificat> certificatList,
-			boolean isActief, Reminder reminder) {
-		this.trainingID = trainingID;
-		this.address = address;
-		this.duration = duration;
-		this.summary = summary;
-		this.date = date;
-		this.employeeList = employeeList;
-		this.materialList = materialList;
-		this.certificatList = certificatList;
-		this.isActief = isActief;
-		this.reminder = reminder;
-	}
-	
-	public Training() {
-		
-	}
-	
-
-//Voor gui
-	public Training(int trainingID,int locationID, String trainingName, Duration dur,  LocalDate datum,String summary, boolean isActief) {
+	public Training(int trainingId, int locationId, String beginDatum, String eindDatum, String trainingName,
+			String trainingSummary, int visibility) {
 		super();
-		this.trainingID = trainingID;
+		this.trainingId = trainingId;
+		this.locationId = locationId;
+		this.beginDatum = beginDatum;
+		this.eindDatum = eindDatum;
 		this.trainingName = trainingName;
-		this.dur = dur;
-		this.summary = summary;
-		this.datum = datum;
-		this.isActief = isActief;
-		this.locationID=locationID;
+		this.trainingSummary = trainingSummary;
+		this.visibility = visibility;
 	}
 
-	public void setTraining(int trainingId, Time duration, String summary, Date date, boolean visibility, String trainingName) {
-		this.setTrainingID(trainingId);
-		this.setDuration(duration);
-		this.setSummary(summary);
-		this.setDate(date);
-		this.setActief(visibility);
-		this.setTrainingName(trainingName);
+	public Training() {
+		super();
 	}
-	
-	
-	// Voor gui
-	
-	public int getLocationId()
-	{
-		return locationID;
-	}
-	public void setLocationId(int locationId)
-	{
-		this.locationID=locationId;
-	}
-	
 
-	public int getTrainingID() {
-		return trainingID;
+	public int getTrainingId() {
+		return trainingId;
 	}
-	public void setTrainingID(int trainingID) {
-		this.trainingID = trainingID;
+
+	public void setTrainingId(int trainingId) {
+		this.trainingId = trainingId;
 	}
+
+	public int getLocationId() {
+		return locationId;
+	}
+
+	public void setLocationId(int locationId) {
+		this.locationId = locationId;
+	}
+
+	public String getBeginDatum() {
+		return beginDatum;
+	}
+
+	public void setBeginDatum(String beginDatum) {
+		this.beginDatum = beginDatum;
+	}
+
+	public String getEindDatum() {
+		return eindDatum;
+	}
+
+	public void setEindDatum(String eindDatum) {
+		this.eindDatum = eindDatum;
+	}
+
+	@Override
+	public String toString() {
+		return "Training [trainingId=" + trainingId + ", locationId=" + locationId + ", beginDatum=" + beginDatum
+				+ ", eindDatum=" + eindDatum + ", trainingName=" + trainingName + ", trainingSummary=" + trainingSummary
+				+ ", visibility=" + visibility + "]";
+	}
+
 	public String getTrainingName() {
 		return trainingName;
 	}
+
 	public void setTrainingName(String trainingName) {
 		this.trainingName = trainingName;
 	}
-	public Address getAddress() {
-		return address;
-	}
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-	public Time getDuration() {
-		return duration;
-	}
-	public void setDuration(Time duration) {
-		this.duration = duration;
-	}
-	public String getSummary() {
-		return summary;
-	}
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
-	public ArrayList<Employee> getEmployeeList() {
-		return employeeList;
-	}
-	public void setEmployeeList(ArrayList<Employee> employeeList) {
-		this.employeeList = employeeList;
-	}
-	public ArrayList<Material> getMaterialList() {
-		return materialList;
-	}
-	public void setMaterialList(ArrayList<Material> materialList) {
-		this.materialList = materialList;
-	}
-	public ArrayList<Certificat> getCertificatList() {
-		return certificatList;
-	}
-	public void setCertificatList(ArrayList<Certificat> certificatList) {
-		this.certificatList = certificatList;
-	}
-	public boolean isActief() {
-		return isActief;
-	}
-	public void setActief(boolean isActief) {
-		this.isActief = isActief;
-	}
-	public Reminder getReminder() {
-		return reminder;
-	}
-	public void setReminder(Reminder reminder) {
-		this.reminder = reminder;
+
+	public String getTrainingSummary() {
+		return trainingSummary;
 	}
 
-	public String showMaterialListForMail() {
-		String list = ""; 
-		list = list + "<ul>\n";
-		for (int i=0; i<materialList.size(); i++) {
-			list = list + "<li><p>" + materialList.get(i).getTitle() + " - " + materialList.get(i).getAuthor() + " - " + materialList.get(i).getISBN() + "</p></li>";
-		}
-		list = list + "</ul>\n";
-		return list;	
-	}
-	
-	//Wordt gedaan via Odata
-	/*
-	 * public String showEmployeeListForMail() {
-		String list = ""; 
-		list = list + "<ul>\n";
-		for (int i=0; i<employeeList.size(); i++) {
-			list = list + "<li><p>" + employeeList.get(i).getNaam() + " - " + employeeList.get(i).getLeeftijd() + " jaar</p></li>";
-		}
-		list = list + "</ul>\n";
-		return list;	
-	}
-	*/
-	
-	@Override
-	public String toString() {
-		return "Training [trainingID=" + trainingID + ", address=" + address + ", duration=" + duration + ", summary="
-				+ summary + ", date=" + date + ", employeeList=" + employeeList + ", materialList=" + materialList
-				+ ", certificatList=" + certificatList + ", isActief=" + isActief + ", reminder=" + reminder + "]";
+	public void setTrainingSummary(String trainingSummary) {
+		this.trainingSummary = trainingSummary;
 	}
 
-	public boolean searchEmployee(Employee employee) {
-		
-		for (int i=0; i<employeeList.size(); i++) {
-			if (employeeList.get(i).getEmployeeId() == employee.getEmployeeId()) {
-				return true;
-			}
-		}
-		return false;
-	//Ik zou deze methode als returnwaarde boolean meegeven, 
-	//als de ingegeven employee in de lijst is returt de methode true
-	//Daarbij is het ook gemmakelijk om het te hergebruiken in volgende methodes
-	//Deze functie zoekt op employeeId
-	}
-	
-	
-	public void addEmployee(Employee employee) {
-		if (searchEmployee(employee) == true) {
-			System.out.println("Deze employee staat al in de lijst");
-		}
-		else {
-			employeeList.add(employee);
-		}
-	}
-	
-	public void removeEmployee(Employee employee) {
-		if (searchEmployee(employee) == false) {
-			System.out.println("Deze employee staat niet in de lijst");
-		}
-		else {
-			employeeList.remove(employee);
-		}
-	}
-	
-	
-	public boolean CheckisActief() {
-		if (isActief == true) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	//Hier heb ik de naam van de methode verandert, vermits ik een
-	//error krijg van meerdere methoden onder dezelfde naam 
-	//(omdat isActief al de naam is van een variable)
-	}
-	
-	
-	//Feature 
-	public void showEmployeeList() {
-		for (int i=0; i<employeeList.size(); i++) {
-			System.out.println(employeeList.get(i).toString());
-		}
+	public int getVisibility() {
+		return visibility;
 	}
 
+	public void setVisibility(int visibility) {
+		this.visibility = visibility;
+	}
 	
+	
+	
+	
+
 }

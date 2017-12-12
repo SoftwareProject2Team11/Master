@@ -1,3 +1,4 @@
+/*
 package tests;
 
 
@@ -45,7 +46,7 @@ public class TrainingTest {
 		t2 = new Training(2, a1, "40", "test", d1,
 				empList1, matList1, cerList1,
 				true, r1);
-		*/
+		
 	}
 
 	@Test
@@ -89,7 +90,7 @@ public class TrainingTest {
 		t1.setEmployeeList(empList1);
 		assertEquals(empList1, t1.getEmployeeList());
 	}
-	*/
+	
 	/*
 	@Test
 	public void testSetGetMaterialList() {
@@ -103,7 +104,7 @@ public class TrainingTest {
 		t1.setCertificatList(cerList1);
 		assertEquals(cerList1, t1.getCertificatList());
 	}
-	*/
+	
 	@Test
 	public void testSetGetIsActief() {
 		t1.setActief(true);
@@ -115,7 +116,7 @@ public class TrainingTest {
 		t1.setReminder(r1);
 		assertEquals(r1, t1.getReminder());
 	}
-	/*
+	
 	@Test
 	public void testConstructorTraining() {
 		assertEquals("Error with getTrainingId", 2, t1.getTrainingID());
@@ -129,5 +130,8 @@ public class TrainingTest {
 		assertEquals("Error with isActief", true, t1.isActief());
 		assertEquals("Error with getReminder", r1, t1.getReminder());
 	}
-	*/
+	
 }
+
+
+ */
