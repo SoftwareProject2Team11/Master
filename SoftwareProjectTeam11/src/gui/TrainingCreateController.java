@@ -1,7 +1,10 @@
 package gui;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
 
+import db.TrainingDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +16,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import logic.Address;
+import db.AddressDAO;
+import logic.Location;
+import db.LocationDAO;
+import logic.Training;
 
 
 public class TrainingCreateController {
@@ -135,6 +143,19 @@ public class TrainingCreateController {
 		
 		public void saveTraining()
 		{
+			String nameTraining = name.getText();
+			String desc = description.getText();
+			LocalDate begin = beginDate.getValue();
+			LocalDate end = endDate.getValue();
+			String streetName = street.getText();
+			String housNumber = number.getText();
+			String countryTraining = country.getText();
 			
+			/*Address a = new Address(1, streetName, Integer.parseInt(housNumber), countryTraining);
+			Location l = new Location(1, 1, "EHB", "1ste verdieping");
+			new AddressDAO().addAddress(a);
+			new LocationDAO().addLocation(l);*/
+			Training t = new Training(1, 1,String.valueOf(begin), String.valueOf(end), nameTraining, desc, 1);
+			new TrainingDAO().addTraining(t);
 		}
 }

@@ -1,7 +1,13 @@
 package gui;
 
 import java.io.IOException;
+import java.util.List;
 
+import db.TrainingDAO;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,8 +17,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import logic.Training;
 
 public class TrainingsController {
@@ -54,6 +62,49 @@ public class TrainingsController {
 	private TableColumn<Training,String> end;
 	@FXML
 	private TableColumn<Training,String> loc;
+	
+	
+	@FXML
+	public void initialize()
+	{
+		name.setCellValueFactory(new Callback<CellDataFeatures<Training, String>, ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<Training, String> data) {
+				return new SimpleStringProperty(data.getValue().getTrainingName());
+			}
+		});
+		
+		description.setCellValueFactory(new Callback<CellDataFeatures<Training, String>, ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<Training, String> data) {
+				return new SimpleStringProperty(data.getValue().getTrainingSummary());
+			}
+		});
+		
+		 begin.setCellValueFactory(new Callback<CellDataFeatures<Training, String>, ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<Training, String> data) {
+				return new SimpleStringProperty(data.getValue().getBeginDatum());
+			}
+		});
+		
+		 end.setCellValueFactory(new Callback<CellDataFeatures<Training, String>, ObservableValue<String>>() {
+				@Override
+				public ObservableValue<String> call(CellDataFeatures<Training, String> data) {
+					return new SimpleStringProperty(data.getValue().getEindDatum());
+				}
+			});
+		 
+		 loc.setCellValueFactory(new Callback<CellDataFeatures<Training, String>, ObservableValue<String>>() {
+				@Override
+				public ObservableValue<String> call(CellDataFeatures<Training, String> data) {
+					return new SimpleStringProperty(data.getValue().getTrainingSummary());
+					//Change address into String and change getter ici î
+				}
+			});
+		System.out.println("ok");	 ObservableList<Training> lijst = FXCollections.observableArrayList(new TrainingDAO().getAll());
+		 column.setItems((ObservableList<Training>) lijst);
+	}
 	
 	public void surveyMenu(ActionEvent event) throws IOException
 	{
