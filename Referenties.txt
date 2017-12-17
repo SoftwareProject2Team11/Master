@@ -15,3 +15,4 @@ http://www.javainterviewpoint.com/read-json-java-jsonobject-jsonarray/
 https://www.mkyong.com/java/how-to-send-http-request-getpost-in-java/
 https://stackoverflow.com/questions/5920135/printing-hashmap-in-java
 https://www.programcreek.com/java-api-examples/org.json.simple.JSONArray
+https://stackoverflow.com/questions/43037814/how-to-get-all-data-in-the-table-with-hibernate

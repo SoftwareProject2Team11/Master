@@ -1,35 +1,29 @@
 package logic;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Entity;
-
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Session;
-
-
-
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 public class MaterialDAO {
 
 	
 	
 		
-	public ArrayList<Material> getAll()
+	public List<Material> getAll()
 	{
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session s = sessionFactory.openSession();
 		
 		s.beginTransaction();
 		
-		ArrayList<Material>Materials = new ArrayList<Material>();
-		Material m = new Material();
-		m = (Material)s.get(Material.class,s);
-		Materials.add(m);
-
+		@SuppressWarnings("unchecked")
+		Query<Material> q = s.createQuery("FROM Material");
+		List<Material>Materials = q.list();
+		
 		   s.getTransaction().commit();
 		   s.close();
 		   sessionFactory.close();
@@ -52,7 +46,7 @@ public class MaterialDAO {
 		
 		   return m;
 	}
-	public ArrayList<Material> getItemBytitle(String title)
+	public ArrayList<Material> getItemBytitle(String title)///-
 	{
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session s = sessionFactory.openSession();
