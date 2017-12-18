@@ -84,14 +84,14 @@ public class TrainingsController {
 		 begin.setCellValueFactory(new Callback<CellDataFeatures<Training, String>, ObservableValue<String>>() {
 			@Override
 			public ObservableValue<String> call(CellDataFeatures<Training, String> data) {
-				return new SimpleStringProperty(data.getValue().getBeginDatum());
+				return new SimpleStringProperty(data.getValue().getstartDate());
 			}
 		});
 		
 		 end.setCellValueFactory(new Callback<CellDataFeatures<Training, String>, ObservableValue<String>>() {
 				@Override
 				public ObservableValue<String> call(CellDataFeatures<Training, String> data) {
-					return new SimpleStringProperty(data.getValue().getEindDatum());
+					return new SimpleStringProperty(data.getValue().getendDate());
 				}
 			});
 		 
@@ -102,8 +102,9 @@ public class TrainingsController {
 					//Change address into String and change getter ici î
 				}
 			});
-		System.out.println("ok");	 ObservableList<Training> lijst = FXCollections.observableArrayList(new TrainingDAO().getAll());
+		 ObservableList<Training> lijst = FXCollections.observableArrayList(new TrainingDAO().getAll());
 		 column.setItems((ObservableList<Training>) lijst);
+		 
 	}
 	
 	public void surveyMenu(ActionEvent event) throws IOException

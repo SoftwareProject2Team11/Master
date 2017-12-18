@@ -157,5 +157,7 @@ public class TrainingCreateController {
 			new LocationDAO().addLocation(l);*/
 			Training t = new Training(1, 1,String.valueOf(begin), String.valueOf(end), nameTraining, desc, 1);
 			new TrainingDAO().addTraining(t);
+			
+			errorText.setText(nameTraining + " was created succesfully");
 		}
 }

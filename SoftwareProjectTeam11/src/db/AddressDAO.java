@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
+import gui.Main;
 import logic.Address;
 
 public class AddressDAO {
@@ -15,8 +16,7 @@ public class AddressDAO {
 	{
 		
 	//opening session
-	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-	Session session = sessionFactory.openSession();
+	Session session = Main.sessionFactory.getCurrentSession();
 	session.beginTransaction();
 	
 	
@@ -27,7 +27,7 @@ public class AddressDAO {
 	session.getTransaction().commit();
 	System.out.println("Statement Worked!");
 	session.close();
-	sessionFactory.close();
+ 
 		
 	}
 	
@@ -36,12 +36,12 @@ public class AddressDAO {
 	{
 		
 	//opening session
-	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-	Session session = sessionFactory.openSession();
+		Session session = Main.sessionFactory.getCurrentSession();
 	session.beginTransaction();
 	
 	
-	Query query = session.createQuery("FROM Address");
+	@SuppressWarnings("unchecked")
+	Query<Address> query = session.createQuery("FROM Address");
 	List<Address> lijst = query.list();
 		
 		
@@ -49,7 +49,7 @@ public class AddressDAO {
 	session.getTransaction().commit();
 	System.out.println("Statement Worked!");
 	session.close();
-	sessionFactory.close();
+ 
 	
 	return lijst;
 	}
@@ -58,8 +58,7 @@ public class AddressDAO {
 	{
 		
 	//opening session
-	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-	Session session = sessionFactory.openSession();
+		Session session = Main.sessionFactory.getCurrentSession();
 	session.beginTransaction();
 	Address a = new Address();
 	
@@ -71,7 +70,7 @@ public class AddressDAO {
 	session.getTransaction().commit();
 	System.out.println("Statement Worked!");
 	session.close();
-	sessionFactory.close();
+ 
 	
 	return a;
 	}
@@ -80,11 +79,11 @@ public class AddressDAO {
 	{
 		
 	//opening session
-	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-	Session session = sessionFactory.openSession();
+		Session session = Main.sessionFactory.getCurrentSession();
 	session.beginTransaction();
 
-	Query query = session.createQuery("FROM Address WHERE streetname Like '%"+name+"%'");
+	@SuppressWarnings("unchecked")
+	Query<Address> query = session.createQuery("FROM Address WHERE streetname Like '%"+name+"%'");
 	Address a = (Address) query.uniqueResult();
 		
 		
@@ -92,10 +91,7 @@ public class AddressDAO {
 	session.getTransaction().commit();
 	System.out.println("Statement Worked!");
 	session.close();
-	sessionFactory.close();
+ 
 	return a;
 	}
-	
-	
-
 }

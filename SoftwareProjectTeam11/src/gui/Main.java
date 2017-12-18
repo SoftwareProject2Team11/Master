@@ -1,8 +1,8 @@
 package gui;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import db.TrainingDAO;
 import javafx.application.Application;
@@ -12,25 +12,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import logic.Training;
 
+
 public class Main extends Application {
+	
+	public static SessionFactory sessionFactory;
 
 	public static void main(String[] args) {
+
+		sessionFactory = new Configuration().configure().buildSessionFactory();
 		launch(args);
+	
+		sessionFactory.close();
 		
 
-		
-		//CONVERTIR LE DATEPICKER EN SQLDATE
-		//opleiding.setEinddatum(Date.valueOf(datepicker.getValue()));
-		
-		//MONTRER LE DATE EN STRING DANS LE TABEL
-		/*SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-		System.out.println(sdf.format(le date object));*/
-		
-	/*	LocalDate d2 
-		String date = String.valueOf(d);
-		Training t = new Training(1, 2, date, date, "C#", "Learn C#", 1);
-		new TrainingDAO().addTraining(t);*/
-		
 		
 	}
 

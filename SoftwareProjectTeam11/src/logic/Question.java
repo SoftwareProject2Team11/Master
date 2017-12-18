@@ -2,37 +2,33 @@ package logic;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="Question")
 public class Question {
-	@Id
-	private int questionId;
-	private String question;
-	private int surveyId;
-	private ArrayList<String> questions;
 	
-	public Question(int questionId, int surveyId, ArrayList<String> questions) {
+	@Id
+	@Column(name="questionId")
+	private int questionId;
+	@Column(name="trainingId")
+	private int trainingId;
+	@Column(name="question")
+	private String question;
+	
+	
+	public Question(int questionId, int trainingId, String question) {
 		super();
 		this.questionId = questionId;
-		this.surveyId = surveyId;
-		this.questions = questions;
-	}
-
-
-	public Question() {
-		super();
-	}
-
-	public Question(int questionId, String question, int surveyId, ArrayList<String> questions) {
-		super();
-		this.questionId = questionId;
+		this.trainingId = trainingId;
 		this.question = question;
-		this.surveyId = surveyId;
-		this.questions = questions;
+	}
+	
+	public Question() {
+
 	}
 
 	public int getQuestionId() {
@@ -43,20 +39,12 @@ public class Question {
 		this.questionId = questionId;
 	}
 
-	public int getSurveyId() {
-		return surveyId;
+	public int getTrainingId() {
+		return trainingId;
 	}
 
-	public void setSurveyId(int surveyId) {
-		this.surveyId = surveyId;
-	}
-
-	public ArrayList<String> getQuestions() {
-		return questions;
-	}
-
-	public void setQuestions(ArrayList<String> questions) {
-		this.questions = questions;
+	public void setTrainingId(int trainingId) {
+		this.trainingId = trainingId;
 	}
 
 	public String getQuestion() {
@@ -67,8 +55,4 @@ public class Question {
 		this.question = question;
 	}
 	
-	
-	
-	
-
 }

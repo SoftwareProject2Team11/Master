@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -14,10 +15,11 @@ import org.json.simple.parser.JSONParser;
 
 
 
+
 public class GoogleBooksApi {
 	private final String User_AgentChrome = "Chrome/62.0.3202.94";
 	private final String User_AgentMozilla="Mozilla/5.0";
-	public HashMap<String,String> sendGetRequestChrome(String zoekwoord) throws Exception
+	public ArrayList<String> sendGetRequestChrome(String zoekwoord) throws Exception
 	{
 		//de JSON voor het gezochte woord opvragen
 		String woord = zoekwoord.replace(" ", "+");
@@ -151,12 +153,21 @@ public class GoogleBooksApi {
 			String itemTextSnippet = (String)searchInfo.get("textSnippet");
 			data.put(itemTitle+" its short description: ",itemTextSnippet);
 				}
-		}
-		 
-		return data;
+		} ArrayList<String> ConvertedListData = new ArrayList<String>();
+		 String convertedDataToString="";
+		for (String key: data.keySet()){
+	        String keyString =key.toString();
+	        String value = data.get(key);  
+	        convertedDataToString=keyString + " " + value;
+	        ConvertedListData.add(convertedDataToString);
+	        convertedDataToString="";
+
+	}
+		
+		return ConvertedListData;
 	}
 	
-	public HashMap<String,String> sendGetRequestMozilla(String zoekwoord) throws Exception
+	public ArrayList<String> sendGetRequestMozilla(String zoekwoord) throws Exception
 	{
 
 		//de JSON voor het gezochte woord opvragen
@@ -293,8 +304,17 @@ public class GoogleBooksApi {
 			data.put(itemTitle+" its short description: ",itemTextSnippet);
 				}
 		}
-		 
-		return data;
+		 ArrayList<String> ConvertedListData = new ArrayList<String>();
+		 String convertedDataToString="";
+		for (String key: data.keySet()){
+	        String keyString =key.toString();
+	        String value = data.get(key);  
+	        convertedDataToString=keyString + " " + value;
+	        ConvertedListData.add(convertedDataToString);
+	        convertedDataToString="";
+		}
+		
+		return ConvertedListData;
 	}
 	public static void main(String[]args) throws Exception
 	{
@@ -302,17 +322,12 @@ public class GoogleBooksApi {
 		GoogleBooksApi gba = new GoogleBooksApi();
 		
 		System.out.println("Testing - Send Http GET request from Chrome");
+
+		ArrayList<String> Testing1 = gba.sendGetRequestChrome("java programming");
 		
-		HashMap<String, String> dataresponse = new HashMap<String,String>();
-		dataresponse.putAll(gba.sendGetRequestChrome("java programming"));
-		
-		for (String key: dataresponse.keySet()){
-
-	        String keyString =key.toString();
-	        String value = dataresponse.get(key);  
-	        System.out.println(keyString + " " + value);  
-
-
+		for(int j = 0;j<Testing1.size();j++)
+		{
+			System.out.println(Testing1.get(j).toString());
 		}
 	}
 }
