@@ -1,11 +1,22 @@
-package logic;
+package db;
+
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Entity;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import logic.Material;
+
+import java.util.ArrayList;
+
+import org.hibernate.Session;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
 public class MaterialDAO {
