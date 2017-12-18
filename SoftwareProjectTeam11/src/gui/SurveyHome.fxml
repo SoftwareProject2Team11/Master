@@ -46,7 +46,7 @@
             <VBox alignment="CENTER" prefHeight="55.0" prefWidth="404.0" BorderPane.alignment="CENTER">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="Training" textFill="WHITE" />
-                  <ChoiceBox fx:id="trainigChoice" prefWidth="150.0" />
+                  <ChoiceBox fx:id="trainingChoice" prefWidth="150.0" />
                   <Button fx:id="chooseButton" mnemonicParsing="false" onAction="#chooseTraining" text="choose">
                      <opaqueInsets>
                         <Insets top="2.0" />

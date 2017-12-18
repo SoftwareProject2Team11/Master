@@ -102,8 +102,9 @@ public class TrainingsController {
 					//Change address into String and change getter ici î
 				}
 			});
-		System.out.println("ok");	 ObservableList<Training> lijst = FXCollections.observableArrayList(new TrainingDAO().getAll());
+		 ObservableList<Training> lijst = FXCollections.observableArrayList(new TrainingDAO().getAll());
 		 column.setItems((ObservableList<Training>) lijst);
+		 
 	}
 	
 	public void surveyMenu(ActionEvent event) throws IOException

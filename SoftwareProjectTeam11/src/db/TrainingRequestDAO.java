@@ -3,23 +3,38 @@ package db;
 import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import logic.Survey;
+import gui.Main;
 import logic.TrainingRequest;
 
 public class TrainingRequestDAO {
 	
 	// 1 = not noted, 2 = accepted, 3 = refused
 	
-	public List<TrainingRequest> getAllAddress()
+	public void addTraining(TrainingRequest training)
 	{
 		
 	//opening session
-	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-	Session session = sessionFactory.openSession();
+	Session session = Main.sessionFactory.getCurrentSession();
+	session.beginTransaction();
+	
+	
+	session.save(training);
+		
+		
+	//closing session
+	session.getTransaction().commit();
+	System.out.println("Statement Worked!");
+	session.close();
+	}
+	
+	
+	public List<TrainingRequest> getAllRequests()
+	{
+		
+	//opening session
+	Session session = Main.sessionFactory.getCurrentSession();
 	session.beginTransaction();
 	
 	
@@ -32,7 +47,7 @@ public class TrainingRequestDAO {
 	session.getTransaction().commit();
 	System.out.println("Statement Worked!");
 	session.close();
-	sessionFactory.close();
+	
 	
 	return lijst;
 	}
@@ -40,8 +55,7 @@ public class TrainingRequestDAO {
 	public void acceptRequest(Integer requestId) {
 		
 		 //Open Session
-		 SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
-		 Session session = sessionfactory.openSession();
+		Session session = Main.sessionFactory.getCurrentSession();
 		 session.beginTransaction();
 		 
 		 //Statement
@@ -53,14 +67,13 @@ public class TrainingRequestDAO {
 		 session.getTransaction().commit();
 		 System.out.println("Statement Worked !");
 		 session.close();
-		 sessionfactory.close();
+
 	}
 	
 	public void declineRequest(int requestId) {
 		
 		 //Open Session
-		 SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
-		 Session session = sessionfactory.openSession();
+		 Session session = Main.sessionFactory.getCurrentSession();
 		 session.beginTransaction();
 		 
 		 //Statement
@@ -73,7 +86,7 @@ public class TrainingRequestDAO {
 		 session.getTransaction().commit();
 		 System.out.println("Statement Worked !");
 		 session.close();
-		 sessionfactory.close();
+
 	}
 
 }

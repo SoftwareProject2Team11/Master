@@ -1,9 +1,12 @@
 package gui;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import db.TrainingDAO;
+import db.TrainingRequestDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +19,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 import logic.Training;
+import logic.TrainingRequest;
 import odata.EmployeeOdata;
 
 public class TrainingAssignController {
@@ -65,7 +69,7 @@ public class TrainingAssignController {
 			
 			for (int i = 1; i <= employees.size()-1; i++) {
 				employeeList.getItems().add(i + ": " + employees.get(i));
-				System.out.println(employees.get(i));
+
 			}
 			
 		}
@@ -148,6 +152,27 @@ public class TrainingAssignController {
 			String selectedTraining = trainingList.getSelectionModel().getSelectedItem();
 			String selectedEmployee = employeeList.getSelectionModel().getSelectedItem();
 			
+			String tId = selectedTraining.replaceAll("[^0-9]", "");
+			int trainingId = Integer.parseInt(tId);
+
+			String trainingName = selectedTraining.replaceAll("[^a-zA-Z#+]", "");
+		
+			
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+			LocalDate localDate = LocalDate.now();
+			String createDate = "" + dtf.format(localDate);
+			
+
+			
+			String updateDate = "";
+			
+			String stringid = selectedEmployee.replaceAll("[^0-9]", "");
+			int userId = Integer.parseInt(stringid);
+			System.out.println(userId);
+			
+			
+			TrainingRequest t = new TrainingRequest(0,trainingId,"Added by HR", trainingName, createDate, updateDate, userId,2);
+			new TrainingRequestDAO().addTraining(t);
 			
 		}
 		

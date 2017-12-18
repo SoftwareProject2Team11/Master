@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
+import gui.Main;
 import logic.Training;
 
 public class TrainingDAO {
@@ -15,8 +16,7 @@ public class TrainingDAO {
 	{
 		
 	//opening session
-	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-	Session session = sessionFactory.openSession();
+	Session session = Main.sessionFactory.getCurrentSession();
 	session.beginTransaction();
 	
 	
@@ -27,7 +27,7 @@ public class TrainingDAO {
 	session.getTransaction().commit();
 	System.out.println("Statement Worked!");
 	session.close();
-	sessionFactory.close();
+
 		
 	}
 	
@@ -35,13 +35,14 @@ public class TrainingDAO {
 	{
 		
 	//opening session
-	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-	Session session = sessionFactory.openSession();
+	
+	Session session = Main.sessionFactory.getCurrentSession();
 	session.beginTransaction();
 	
 	
 	@SuppressWarnings("unchecked")
 	Query<Training> query = session.createQuery("FROM Training WHERE visibility = 1");
+	
 	List<Training> lijst = query.list();
 		
 		
@@ -49,7 +50,7 @@ public class TrainingDAO {
 	session.getTransaction().commit();
 	System.out.println("Statement Worked!");
 	session.close();
-	sessionFactory.close();
+	
 	
 	return lijst;
 	}
@@ -58,20 +59,25 @@ public class TrainingDAO {
 	{
 		
 	//opening session
-	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-	Session session = sessionFactory.openSession();
+	Session session = Main.sessionFactory.getCurrentSession();
 	session.beginTransaction();
 	Training t = new Training();
 	
-	t = (Training)session.get(Training.class,id);
+	@SuppressWarnings("unchecked")
+	Query<Training> query = session.createQuery("FROM Training WHERE trainingId = :i");
+	
 
+	query.setParameter("i", id);
+	
+	t = query.uniqueResult();
+	
 		
 		
 	//closing session
 	session.getTransaction().commit();
 	System.out.println("Statement Worked!");
 	session.close();
-	sessionFactory.close();
+
 	
 	return t;
 	}

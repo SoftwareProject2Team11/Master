@@ -2,8 +2,12 @@ package logic;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="Training_Requests")
@@ -16,6 +20,8 @@ public class TrainingRequest {
 	private int trainingId;
 	@Column(name="trainingName")
 	private String trainingName;
+	@Column(name="reason")
+	private String reason;
 	@Column(name="created_at")
 	private String createDate;
 	@Column(name="updated_at")
@@ -25,6 +31,16 @@ public class TrainingRequest {
 	@Column(name="status")
 	private int status;
 	
+	
+	
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
 	public int getStatus() {
 		return status;
 	}
@@ -42,6 +58,19 @@ public class TrainingRequest {
 		this.createDate = createDate;
 		this.updateDate = updateDate;
 		this.userId = userId;
+	}
+	
+	public TrainingRequest (int requestId ,int trainingId,String reason, String trainingName, String createDate, String updateDate,
+			int userId, int status) {
+		super();
+		this.requestId = requestId;
+		this.trainingId = trainingId;
+		this.trainingName = trainingName;
+		this.reason=reason;
+		this.createDate = createDate;
+		this.updateDate = updateDate;
+		this.userId = userId;
+		this.status=status;
 	}
 	
 	public TrainingRequest() {

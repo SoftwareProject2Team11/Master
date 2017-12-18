@@ -1,18 +1,31 @@
 package gui;
 
 
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import db.TrainingDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import logic.Training;
 
 
 public class Main extends Application {
+	
+	public static SessionFactory sessionFactory;
 
 	public static void main(String[] args) {
+	/*	System.out.println(1);
+		Email myMail = new Email();
+		myMail.sendEmail("oussama.el.aazmani@student.ehb.be", "New password: hello");
+		System.out.println(2);*/
+		sessionFactory = new Configuration().configure().buildSessionFactory();
 		launch(args);
-		
+	
+		sessionFactory.close();
 		
 		//CONVERTIR LE DATEPICKER EN SQLDATE
 		//opleiding.setEinddatum(Date.valueOf(datepicker.getValue()));

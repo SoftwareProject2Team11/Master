@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Training {
 	
 	@Id
-	@Column(name="addressId")
+	@Column(name="trainingId")
 	private int trainingId;
 	@Column(name="locationId")
 	private int locationId;
