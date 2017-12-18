@@ -64,9 +64,9 @@ public class MaterialDAO {
 		s.beginTransaction();
 		
 		ArrayList<Material>Materials = new ArrayList<Material>();
-		Material m = new Material();
-		m = (Material)s.get(Material.class,title);
-		Materials.add(m);
+		@SuppressWarnings("unchecked")
+		Query<Material>m = s.createQuery("FROM Material WHERE title LIKE '%"+title+"%'");
+		Materials.addAll(m.list());
 
 		   s.getTransaction().commit();
 		   s.close();
@@ -99,10 +99,9 @@ public class MaterialDAO {
 		s.beginTransaction();
 		
 		ArrayList<Material>MaterialsA = new ArrayList<Material>();
-		
-		Material m = new Material();
-		m = (Material)s.get(Material.class,author);
-		MaterialsA.add(m);
+		@SuppressWarnings("unchecked")
+		Query<Material>mA = s.createQuery("FROM Material WHERE author LIKE '%"+author+"%'");
+		MaterialsA.addAll(mA.list());
 
 		   s.getTransaction().commit();
 		   s.close();
