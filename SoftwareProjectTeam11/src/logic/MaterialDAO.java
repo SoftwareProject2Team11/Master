@@ -29,8 +29,7 @@ public class MaterialDAO {
 		   sessionFactory.close();
 		
 		   return Materials;
-	}
-	public Material getItemById(int id)
+	}	public Material getItemById(int id)
 	{
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session s = sessionFactory.openSession();
