@@ -15,7 +15,7 @@ public class Sha512 {
 			byte[] digestedBytes = messageDigest.digest();
 			
 			password = DatatypeConverter.printHexBinary(digestedBytes).toLowerCase();
-			
+		//	password = password.substring(15, 30);
 			return password;
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();

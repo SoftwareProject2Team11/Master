@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import logic.Email;
 import db.LoginDAO;
 
 public class Controller {
@@ -27,11 +28,17 @@ public class Controller {
 	private TextField usernameText;
 	@FXML
 	private TextField passwordText;
+	private static String user ="Hacker";
+	
+	
 	
 	public void checkLogin(ActionEvent event)throws IOException
 	{
+			
 			boolean check = new LoginDAO().checkLogin(usernameText.getText(), passwordText.getText());
-			if(true) {
+			if(/*check*/true) {
+			setUser(usernameText.getText());
+			System.out.println(getUser());
 			Parent homepageParent = FXMLLoader.load(getClass().getResource("TrainingsGUI.fxml"));
 			Scene homepageScene = new Scene(homepageParent);
 			
@@ -74,11 +81,41 @@ public class Controller {
 		window.show();
 	}
 	
-	public void sendMail() 
+	public void sendMail(ActionEvent event) throws IOException 
 	{
 		
-		System.out.println(mailText.getText());
+		/*System.out.println(mailText.getText());
+		new LoginDAO().setReset(Controller.getUser(),0);
+		String a = ""+new LoginDAO().getReset(user);
+		new Email().sendEmail("", a);*/
+		/*
+		new LoginDAO().setReset("Oussama", 0);
+		int reset = new LoginDAO().getReset("Oussama");
+		System.out.println(reset);
+		int okeh = reset;
 		
+		if (okeh == reset) {
+			String password = "OussOuss";
+			new LoginDAO().setNewPassword("Oussama", password);
+			System.out.println("ok");
+		}
+
+		/*
+		Parent passwordForgottenParent = FXMLLoader.load(getClass().getResource("ResetPasswordGUI.fxml"));
+		Scene passwordForgottenScene = new Scene(passwordForgottenParent);
+		
+		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setScene(passwordForgottenScene);
+		window.setResizable(false);
+		window.show();*/
+	}
+
+	public static String getUser() {
+		return user;
+	}
+
+	public static void setUser(String user) {
+		Controller.user = user;
 	}
 	
 }

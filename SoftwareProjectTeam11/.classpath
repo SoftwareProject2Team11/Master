@@ -20,5 +20,37 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
 	<classpathentry kind="lib" path="JARs/jfoenix-1.10.0.jar"/>
 	<classpathentry kind="lib" path="JARs/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/aopalliance-repackaged-2.5.0-b42.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/yasson-1.0.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/cdi-api-1.1.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/el-api-2.2.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/hk2-api-2.5.0-b42.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/hk2-locator-2.5.0-b42.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/hk2-utils-2.5.0-b42.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/javassist-3.22.0-CR2.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/javax.annotation-api-1.2.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/javax.inject-1.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/javax.inject-2.5.0-b42.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/javax.json-1.1.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/javax.json-api-1.1.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/javax.json.bind-api-1.0.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/javax.servlet-api-3.0.1.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/javax.ws.rs-api-2.1.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/jaxb-api-2.2.7.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/jboss-interceptors-api_1.1_spec-1.0.0.Beta1.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/jersey-common.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/jersey-client.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/jersey-container-servlet-core.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/jersey-container-servlet.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/jersey-hk2.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/jersey-media-jaxb.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/jersey-media-json-binding.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/jersey-media-sse.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/jersey-server.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/jsr250-api-1.0.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/org.osgi.core-4.2.0.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/osgi-resource-locator-1.0.1.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/persistence-api-1.0.jar"/>
+	<classpathentry kind="lib" path="JARs/OdataJarrs/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

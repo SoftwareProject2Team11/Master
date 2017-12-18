@@ -79,14 +79,8 @@
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="Training" textFill="WHITE" />
                   <ChoiceBox fx:id="trainingChoice" prefWidth="150.0" />
-                  <Button fx:id="chooseButton" mnemonicParsing="false" onAction="#chooseTraining" text="Button">
-                     <opaqueInsets>
-                        <Insets top="2.0" />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets top="3.0" />
-                     </VBox.margin>
-                  </Button>
+            
+               
                </children>
             </VBox>
          </top>

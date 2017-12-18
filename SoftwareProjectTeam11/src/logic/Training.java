@@ -12,14 +12,14 @@ import javax.persistence.Table;
 public class Training {
 	
 	@Id
-	@Column(name="addressId")
+	@Column(name="trainingId")
 	private int trainingId;
 	@Column(name="locationId")
 	private int locationId;
-	@Column(name="beginDatum")
-	private String beginDatum;
-	@Column(name="eindDatum")
-	private String eindDatum;
+	@Column(name="startDate")
+	private String startDate;
+	@Column(name="endDate")
+	private String endDate;
 	@Column(name="trainingName")
 	private String trainingName;
 	@Column(name="trainingSummary")
@@ -27,13 +27,13 @@ public class Training {
 	@Column(name="visibility")
 	private int visibility;
 	
-	public Training(int trainingId, int locationId, String beginDatum, String eindDatum, String trainingName,
+	public Training(int trainingId, int locationId, String startDate, String endDate, String trainingName,
 			String trainingSummary, int visibility) {
 		super();
 		this.trainingId = trainingId;
 		this.locationId = locationId;
-		this.beginDatum = beginDatum;
-		this.eindDatum = eindDatum;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.trainingName = trainingName;
 		this.trainingSummary = trainingSummary;
 		this.visibility = visibility;
@@ -59,26 +59,26 @@ public class Training {
 		this.locationId = locationId;
 	}
 
-	public String getBeginDatum() {
-		return beginDatum;
+	public String getstartDate() {
+		return startDate;
 	}
 
-	public void setBeginDatum(String beginDatum) {
-		this.beginDatum = beginDatum;
+	public void setstartDate(String startDate) {
+		this.startDate = startDate;
 	}
 
-	public String getEindDatum() {
-		return eindDatum;
+	public String getendDate() {
+		return endDate;
 	}
 
-	public void setEindDatum(String eindDatum) {
-		this.eindDatum = eindDatum;
+	public void setendDate(String endDate) {
+		this.endDate = endDate;
 	}
 
 	@Override
 	public String toString() {
-		return "Training [trainingId=" + trainingId + ", locationId=" + locationId + ", beginDatum=" + beginDatum
-				+ ", eindDatum=" + eindDatum + ", trainingName=" + trainingName + ", trainingSummary=" + trainingSummary
+		return "Training [trainingId=" + trainingId + ", locationId=" + locationId + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", trainingName=" + trainingName + ", trainingSummary=" + trainingSummary
 				+ ", visibility=" + visibility + "]";
 	}
 
