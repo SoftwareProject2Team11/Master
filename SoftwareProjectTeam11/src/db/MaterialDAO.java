@@ -40,9 +40,7 @@ public class MaterialDAO {
 		   sessionFactory.close();
 		
 		   return Materials;
-	}
-	
-	public Material getItemById(int id)
+	}	public Material getItemById(int id)
 	{
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session s = sessionFactory.openSession();
@@ -101,9 +99,11 @@ public class MaterialDAO {
 		s.beginTransaction();
 		
 		ArrayList<Material>MaterialsA = new ArrayList<Material>();
-		@SuppressWarnings("unchecked")
-		Query<Material> materials=s.createQuery("FROM Material WHERE author LIKE '%"+author+"%'");
-		MaterialsA.addAll(materials.list());
+		
+		Material m = new Material();
+		m = (Material)s.get(Material.class,author);
+		MaterialsA.add(m);
+
 		   s.getTransaction().commit();
 		   s.close();
 		   sessionFactory.close();
