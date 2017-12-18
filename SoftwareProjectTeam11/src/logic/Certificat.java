@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import db.CertificatDAO;
+
 @Entity
 @Table
 public class Certificat extends CertificatDAO {
@@ -16,10 +18,10 @@ public class Certificat extends CertificatDAO {
 		super();
 	}
 	
-	public Certificat(String certificatName, boolean result) {
+	public Certificat(String certificatName, boolean i) {
 		super();
 		this.certificatName = certificatName;
-		this.result = result;
+		this.result = i;
 	}
 	
 	public int getCertificatId() {

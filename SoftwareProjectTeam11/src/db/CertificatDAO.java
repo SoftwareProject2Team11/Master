@@ -90,9 +90,9 @@ public class CertificatDAO {
 		 return certifs;
 		 
 	 }
-	 
-/*
-	 void updateCertResult(int certificatId, int newResult) { 
+	 /*
+
+	 void updateCertResult(int certificatId, boolean newResult) { 
 		 
 		 //Open Session
 		 SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
@@ -113,8 +113,8 @@ public class CertificatDAO {
 		 session.close();
 		 sessionfactory.close();
 	 }
-	
-	 */
+	*/
+	 
 	 void updateCertName(int certificatId, String certificatName){
 		 
 		 //Open Session
