@@ -36,7 +36,7 @@ public class Controller {
 	{
 			
 			boolean check = new LoginDAO().checkLogin(usernameText.getText(), passwordText.getText());
-			if(/*check*/true) {
+			if(check) {
 			setUser(usernameText.getText());
 			System.out.println(getUser());
 			Parent homepageParent = FXMLLoader.load(getClass().getResource("TrainingsGUI.fxml"));

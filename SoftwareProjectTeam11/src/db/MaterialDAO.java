@@ -56,7 +56,7 @@ public class MaterialDAO {
 		
 		   return m;
 	}
-	public ArrayList<Material> getItemBytitle(String title)///-
+	public ArrayList<Material> getItemByTitle(String title)///-
 	{
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session s = sessionFactory.openSession();
