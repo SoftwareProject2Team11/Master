@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -32,9 +33,19 @@
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Label" />
-            <Label text="Label" />
-            <Label text="Label" />
+            <Label style="-fx-font-weight: bold;" text="Most popular training:" textFill="WHITE" />
+            <Label fx:id="popularTraining" text="Not available" textFill="WHITE" />
+            <Label style="-fx-font-weight: bold;" text="Employee with most training followed" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Label>
+            <Label fx:id="trainingFollowed" text="Not available" textFill="WHITE" />
+            <Label style="-fx-font-weight: bold;" text="Employees following a training" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="employeesFollowing" text="Not available" textFill="WHITE" />
          </children>
       </VBox>
    </center>

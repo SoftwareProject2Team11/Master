@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import db.CertificatDAO;
 
+import db.CertificatDAO;
+
 @Entity
 @Table
 public class Certificat  {
@@ -28,13 +30,17 @@ public class Certificat  {
 	private String extensie;
 
 	public Certificat(int certificatId, int trainingId, String certificatName, byte[] certificaat, String extensie) {
+
+	
 		super();
 		this.certificatId = certificatId;
 		this.trainingId = trainingId;
 		this.certificatName = certificatName;
+
 		this.certificaat = certificaat;
 		this.extensie=extensie;
 	
+
 	}
 	
 

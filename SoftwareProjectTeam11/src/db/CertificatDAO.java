@@ -33,6 +33,7 @@ public class CertificatDAO {
 		Session session = Main.sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		
+
 		@SuppressWarnings("unchecked")
 		Query<Certificat> query = session.createQuery("FROM Certificat WHERE certificatName = :n");
 		query.setParameter("n", name);
@@ -47,7 +48,6 @@ public class CertificatDAO {
 		
 		return c;
 	}
-	
-	
+
 
 }
