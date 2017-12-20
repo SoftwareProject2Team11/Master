@@ -64,7 +64,7 @@ public void sendEmail(String recipient, String HTMLBody) {
 		try {
 			System.out.println(1.5);
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("noreplythismail34@gmail.com"));
+			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO, 
 					InternetAddress.parse(recipient));
 			message.setSubject("New Password");

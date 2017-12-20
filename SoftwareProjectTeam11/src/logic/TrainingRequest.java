@@ -18,8 +18,6 @@ public class TrainingRequest {
 	private int requestId;
 	@Column(name="trainingId")
 	private int trainingId;
-	@Column(name="trainingName")
-	private String trainingName;
 	@Column(name="reason")
 	private String reason;
 	@Column(name="created_at")
@@ -49,23 +47,23 @@ public class TrainingRequest {
 		this.status = status;
 	}
 
-	public TrainingRequest(int requestId, int trainingId, String trainingName, String createDate, String updateDate,
+	public TrainingRequest(int requestId, int trainingId,  String createDate, String updateDate,
 			int userId) {
 		super();
 		this.requestId = requestId;
 		this.trainingId = trainingId;
-		this.trainingName = trainingName;
+
 		this.createDate = createDate;
 		this.updateDate = updateDate;
 		this.userId = userId;
 	}
 	
-	public TrainingRequest (int requestId ,int trainingId,String reason, String trainingName, String createDate, String updateDate,
+	public TrainingRequest (int requestId ,int trainingId,String reason,  String createDate, String updateDate,
 			int userId, int status) {
 		super();
 		this.requestId = requestId;
 		this.trainingId = trainingId;
-		this.trainingName = trainingName;
+
 		this.reason=reason;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
@@ -93,13 +91,7 @@ public class TrainingRequest {
 		this.trainingId = trainingId;
 	}
 
-	public String getTrainingName() {
-		return trainingName;
-	}
 
-	public void setTrainingName(String trainingName) {
-		this.trainingName = trainingName;
-	}
 
 	public String getCreateDate() {
 		return createDate;

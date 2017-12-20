@@ -13,7 +13,6 @@ public class AnswerDAO {
 
 	public void addAnswer(Answer a)
 	{
-		
 	//opening session
 	Session session = Main.sessionFactory.getCurrentSession();
 	session.beginTransaction();

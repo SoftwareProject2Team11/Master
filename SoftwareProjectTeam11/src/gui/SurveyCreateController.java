@@ -59,6 +59,24 @@ public class SurveyCreateController {
 	private Button trButton;
 	@FXML
 	private List<Training> lijstTraining;
+	
+	@FXML
+	private Button optionButton;
+
+	
+	@FXML
+	public void openOption(ActionEvent event)  throws IOException
+	{
+		Parent homepageParent = FXMLLoader.load(getClass().getResource("OptionGUI.fxml"));
+		Scene homepageScene = new Scene(homepageParent);
+		
+		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setScene(homepageScene);
+		window.setResizable(true);
+		window.setTitle("Homepage");
+
+		window.show();
+	}
 
 	@FXML
 	public void initialize() {

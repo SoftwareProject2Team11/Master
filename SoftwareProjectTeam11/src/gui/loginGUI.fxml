@@ -13,11 +13,11 @@
 <?import javafx.scene.text.Font?>
 
 
-<StackPane fx:controller="gui.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane  fx:controller="gui.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <SplitPane dividerPositions="0.4" prefHeight="160.0" prefWidth="200.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #2D3447;">
+          <AnchorPane fx:id="pane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #2D3447;">
                <children>
                   <Label layoutX="43.0" layoutY="41.0" style="-fx-font-weight: bold;" text="Name Company" textFill="WHITE">
                      <font>
@@ -32,7 +32,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-          <AnchorPane focusTraversable="true" minHeight="160.0" minWidth="100.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #2D3447;">
+          <AnchorPane fx:id="panes" focusTraversable="true" minHeight="160.0" minWidth="100.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #2D3447;">
                <children>
                   <JFXTextField fx:id="usernameText" layoutX="111.0" layoutY="174.0" promptText="Username" style="-fx-prompt-text-fill: white; -fx-text-fill: white;" />
                   <JFXPasswordField fx:id="passwordText" layoutX="111.0" layoutY="230.0" promptText="Password" style="-fx-prompt-text-fill: white; -fx-text-fill: white;" />

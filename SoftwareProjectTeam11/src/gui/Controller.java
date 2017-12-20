@@ -11,8 +11,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import logic.Email;
+import db.ColorDAO;
 import db.LoginDAO;
 
 public class Controller {
@@ -29,6 +32,24 @@ public class Controller {
 	@FXML
 	private TextField passwordText;
 	private static String user ="Hacker";
+	
+	@FXML
+	private AnchorPane pane;
+	@FXML
+	private AnchorPane panes;
+	
+	public static String mail;
+	
+	@FXML
+	public void initialize()
+	{
+
+			String kleur = new ColorDAO().getColor();
+			System.out.println(kleur);
+		/*	pane.setStyle("-fx-background-color: #" + kleur);
+			panes.setStyle("-fx-background-color: #" + kleur);*/
+
+	}
 	
 	
 	
@@ -84,30 +105,26 @@ public class Controller {
 	public void sendMail(ActionEvent event) throws IOException 
 	{
 		
-		/*System.out.println(mailText.getText());
-		new LoginDAO().setReset(Controller.getUser(),0);
-		String a = ""+new LoginDAO().getReset(user);
-		new Email().sendEmail("", a);*/
-		/*
-		new LoginDAO().setReset("Oussama", 0);
-		int reset = new LoginDAO().getReset("Oussama");
-		System.out.println(reset);
-		int okeh = reset;
+		boolean correctMail = new LoginDAO().setReset(mailText.getText(),0);
+		if (correctMail) {
+			String a = "Reset key: "+new LoginDAO().getReset(mailText.getText());
+			System.out.println(a);
+		//	new Email().sendEmail(mailText.getText(), a);
+		mail = mailText.getText();
 		
-		if (okeh == reset) {
-			String password = "OussOuss";
-			new LoginDAO().setNewPassword("Oussama", password);
-			System.out.println("ok");
-		}
-
-		/*
 		Parent passwordForgottenParent = FXMLLoader.load(getClass().getResource("ResetPasswordGUI.fxml"));
 		Scene passwordForgottenScene = new Scene(passwordForgottenParent);
 		
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		window.setScene(passwordForgottenScene);
 		window.setResizable(false);
-		window.show();*/
+		window.show();
+		
+		}
+		
+		else {
+			System.out.println("NEINE");
+		}
 	}
 
 	public static String getUser() {

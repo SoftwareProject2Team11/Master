@@ -65,6 +65,39 @@ public class TrainingCreateController {
 		private TextField country;
 		@FXML
 		private Button saveButton;
+		
+		@FXML
+		private Button optionButton;
+		@FXML
+		private Button certificateButton;
+		
+		@FXML
+		public void certif(ActionEvent event)  throws IOException
+		{
+			Parent homepageParent = FXMLLoader.load(getClass().getResource("TrainingCertificatGUI.fxml"));
+			Scene homepageScene = new Scene(homepageParent);
+			
+			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			window.setScene(homepageScene);
+			window.setResizable(true);
+			window.setTitle("Homepage");
+
+			window.show();
+		}
+		
+		@FXML
+		public void openOption(ActionEvent event)  throws IOException
+		{
+			Parent homepageParent = FXMLLoader.load(getClass().getResource("OptionGUI.fxml"));
+			Scene homepageScene = new Scene(homepageParent);
+			
+			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			window.setScene(homepageScene);
+			window.setResizable(true);
+			window.setTitle("Homepage");
+
+			window.show();
+		}
 
 		
 		public void surveyMenu(ActionEvent event) throws IOException

@@ -54,6 +54,40 @@ public class TrainingAssignController {
 		@FXML
 		private ListView<String> employeeList;
 		
+		
+		@FXML
+		private Button optionButton;
+		@FXML
+		private Button certificateButton;
+		
+		@FXML
+		public void certif(ActionEvent event)  throws IOException
+		{
+			Parent homepageParent = FXMLLoader.load(getClass().getResource("TrainingCertificatGUI.fxml"));
+			Scene homepageScene = new Scene(homepageParent);
+			
+			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			window.setScene(homepageScene);
+			window.setResizable(true);
+			window.setTitle("Homepage");
+
+			window.show();
+		}
+		
+		@FXML
+		public void openOption(ActionEvent event)  throws IOException
+		{
+			Parent homepageParent = FXMLLoader.load(getClass().getResource("OptionGUI.fxml"));
+			Scene homepageScene = new Scene(homepageParent);
+			
+			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			window.setScene(homepageScene);
+			window.setResizable(true);
+			window.setTitle("Homepage");
+
+			window.show();
+		}
+		
 		@FXML
 		public void initialize()
 		{
@@ -67,8 +101,8 @@ public class TrainingAssignController {
 			//---------------------------------
 			List<String> employees = new EmployeeOdata().getAll();
 			
-			for (int i = 1; i <= employees.size()-1; i++) {
-				employeeList.getItems().add(i + ": " + employees.get(i));
+			for (int i = 1; i <= employees.size(); i++) {
+				employeeList.getItems().add(i + ": " + employees.get(i-1));
 
 			}
 			
@@ -155,7 +189,7 @@ public class TrainingAssignController {
 			String tId = selectedTraining.replaceAll("[^0-9]", "");
 			int trainingId = Integer.parseInt(tId);
 
-			String trainingName = selectedTraining.replaceAll("[^a-zA-Z#+]", "");
+		
 		
 			
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
@@ -171,7 +205,7 @@ public class TrainingAssignController {
 			System.out.println(userId);
 			
 			
-			TrainingRequest t = new TrainingRequest(0,trainingId,"Added by HR", trainingName, createDate, updateDate, userId,2);
+			TrainingRequest t = new TrainingRequest(0,trainingId,"Added by HR", createDate, updateDate, userId,2);
 			new TrainingRequestDAO().addTraining(t);
 			
 		}

@@ -36,6 +36,8 @@ public class TrainingsController {
 	private Button logoutButton;
 	@FXML
 	private Label errorText;
+	@FXML
+	private Button optionButton;
 	
 	// For Training Controllers
 	
@@ -47,6 +49,23 @@ public class TrainingsController {
 	private Button assignButton;
 	@FXML
 	private Button demandsButton;
+	
+	@FXML
+	private Button certificateButton;
+	
+	@FXML
+	public void certif(ActionEvent event)  throws IOException
+	{
+		Parent homepageParent = FXMLLoader.load(getClass().getResource("TrainingCertificatGUI.fxml"));
+		Scene homepageScene = new Scene(homepageParent);
+		
+		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setScene(homepageScene);
+		window.setResizable(true);
+		window.setTitle("Homepage");
+
+		window.show();
+	}
 	
 	// For this Controller
 	
@@ -62,6 +81,22 @@ public class TrainingsController {
 	private TableColumn<Training,String> end;
 	@FXML
 	private TableColumn<Training,String> loc;
+
+	
+	
+	@FXML
+	public void openOption(ActionEvent event)  throws IOException
+	{
+		Parent homepageParent = FXMLLoader.load(getClass().getResource("OptionGUI.fxml"));
+		Scene homepageScene = new Scene(homepageParent);
+		
+		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setScene(homepageScene);
+		window.setResizable(true);
+		window.setTitle("Homepage");
+
+		window.show();
+	}
 	
 	
 	@FXML
@@ -134,6 +169,8 @@ public class TrainingsController {
 		
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		window.setScene(loginScene);
+		//window.setResizable(false);
+		
 		window.show();
 	}
 	public void showTrainings()

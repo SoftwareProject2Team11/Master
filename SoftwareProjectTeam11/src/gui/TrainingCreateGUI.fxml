@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:controller="gui.TrainingCreateController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TrainingCreateController">
    <top>
       <TitledPane animated="false" prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" text="Menu" BorderPane.alignment="CENTER">
          <content>
@@ -22,6 +22,7 @@
                   <JFXButton text="Training" textFill="WHITE" />
                   <JFXButton fx:id="surveyButton" onAction="#surveyMenu" text="Survey" textFill="WHITE" />
                   <JFXButton fx:id="statisticsButton" onAction="#statisticsMenu" text="Statistics" textFill="WHITE" />
+                  <JFXButton fx:id="optionButton" onAction="#openOption" text="Options" textFill="WHITE" />
                   <JFXButton fx:id="logoutButton" alignment="TOP_RIGHT" onAction="#logout" text="Log out" textFill="WHITE" />
                </children>
             </HBox>
@@ -31,10 +32,11 @@
    <left>
       <VBox prefHeight="323.0" prefWidth="100.0" style="-fx-border-color: white;">
          <children>
-            <JFXButton fx:id="trainingsButton" minHeight="35.0" minWidth="50.0" onAction="#showTrainings" prefHeight="74.0" prefWidth="102.0" text="Trainings" textFill="WHITE" />
-            <JFXButton fx:id="createButton" onAction="#createTraining" prefHeight="78.0" prefWidth="135.0" text="Create" textFill="WHITE" />
-            <JFXButton fx:id="assignButton" onAction="#assignTraining" prefHeight="78.0" prefWidth="135.0" text="Assign" textFill="WHITE" />
-            <JFXButton fx:id="demandsButton" minHeight="35.0" minWidth="50.0" onAction="#demandsTraining" prefHeight="74.0" prefWidth="102.0" text="Demands" textFill="WHITE" />
+            <JFXButton fx:id="trainingsButton" minHeight="35.0" minWidth="50.0" onAction="#showTrainings" prefHeight="74.0" prefWidth="102.0" style="-fx-border-color: white;" text="Trainings" textFill="WHITE" />
+            <JFXButton fx:id="createButton" onAction="#createTraining" prefHeight="78.0" prefWidth="135.0" style="-fx-border-color: white;" text="Create" textFill="WHITE" />
+            <JFXButton fx:id="assignButton" onAction="#assignTraining" prefHeight="78.0" prefWidth="135.0" style="-fx-border-color: white;" text="Assign" textFill="WHITE" />
+            <JFXButton fx:id="demandsButton" minHeight="35.0" minWidth="50.0" onAction="#demandsTraining" prefHeight="74.0" prefWidth="102.0" style="-fx-border-color: white;" text="Demands" textFill="WHITE" />
+            <JFXButton fx:id="certificateButton" minHeight="35.0" minWidth="50.0" onAction="#certif" prefHeight="74.0" prefWidth="102.0" style="-fx-border-color: white;" text="Certificate" textFill="WHITE" />
          </children>
       </VBox>
    </left>
@@ -47,8 +49,8 @@
    <center>
       <GridPane prefHeight="312.0" prefWidth="298.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="231.0" minWidth="10.0" prefWidth="98.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="231.0" minWidth="10.0" prefWidth="199.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="231.0" minWidth="10.0" prefWidth="112.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="231.0" minWidth="10.0" prefWidth="177.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="399.0" minWidth="0.0" prefWidth="15.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="399.0" minWidth="10.0" prefWidth="38.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="399.0" minWidth="10.0" prefWidth="140.0" />
@@ -78,7 +80,7 @@
             <Label prefHeight="17.0" prefWidth="69.0" text="County:" textFill="WHITE" GridPane.rowIndex="6" />
             <TextField fx:id="city" prefHeight="25.0" prefWidth="111.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="country" prefHeight="25.0" prefWidth="111.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Button fx:id="saveButton" onAction="#saveTraining" mnemonicParsing="false" text="Save" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveTraining" text="Save" GridPane.columnIndex="4" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </center>
