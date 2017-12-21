@@ -52,6 +52,51 @@ public class TrainingRequestDAO {
 	return lijst;
 	}
 	
+	
+	public List<TrainingRequest> getAllRequestsForStats()
+	{
+		
+	//opening session
+	Session session = Main.sessionFactory.getCurrentSession();
+	session.beginTransaction();
+	
+	
+	@SuppressWarnings("unchecked")
+	Query<TrainingRequest> query = session.createQuery("FROM TrainingRequest");
+	List<TrainingRequest> lijst = query.list();
+		
+		
+	//closing session
+	session.getTransaction().commit();
+	System.out.println("Statement Worked!");
+	session.close();
+	
+	
+	return lijst;
+	}
+	
+	public List<TrainingRequest> getAllFollowing()
+	{
+		
+	//opening session
+	Session session = Main.sessionFactory.getCurrentSession();
+	session.beginTransaction();
+	
+	
+	@SuppressWarnings("unchecked")
+	Query<TrainingRequest> query = session.createQuery("FROM TrainingRequest where status = 2");
+	List<TrainingRequest> lijst = query.list();
+		
+		
+	//closing session
+	session.getTransaction().commit();
+	System.out.println("Statement Worked!");
+	session.close();
+	
+	
+	return lijst;
+	}
+	
 	public void acceptRequest(Integer requestId) {
 		
 		 //Open Session

@@ -3,12 +3,17 @@ package gui;
 import java.io.IOException;
 import java.util.List;
 
+import logic.Address;
+
+import db.AddressDAO;
+import db.LocationDAO;
 import db.TrainingDAO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,11 +21,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import logic.Location;
 import logic.Training;
 
 public class TrainingsController {
@@ -53,6 +62,8 @@ public class TrainingsController {
 	@FXML
 	private Button certificateButton;
 	
+	private WebView wv;
+	
 	@FXML
 	public void certif(ActionEvent event)  throws IOException
 	{
@@ -81,6 +92,9 @@ public class TrainingsController {
 	private TableColumn<Training,String> end;
 	@FXML
 	private TableColumn<Training,String> loc;
+	
+	
+	public static String address;
 
 	
 	
@@ -133,14 +147,46 @@ public class TrainingsController {
 		 loc.setCellValueFactory(new Callback<CellDataFeatures<Training, String>, ObservableValue<String>>() {
 				@Override
 				public ObservableValue<String> call(CellDataFeatures<Training, String> data) {
-					return new SimpleStringProperty(data.getValue().getTrainingSummary());
+					return new SimpleStringProperty(data.getValue().getLocationId() + "");
 					//Change address into String and change getter ici î
 				}
 			});
+		 
+		
+		 
+		 
+		 
+		 
 		 ObservableList<Training> lijst = FXCollections.observableArrayList(new TrainingDAO().getAll());
 		 column.setItems((ObservableList<Training>) lijst);
 		 
 	}
+	
+	
+	@FXML
+	public void clickedLoc()
+	{
+		Training t = column.getSelectionModel().getSelectedItem();
+		Location l = new LocationDAO().getLocationById(t.getLocationId());
+		Address a = new AddressDAO().getAddressById(l.getAddressId());
+		
+		address = a.getCity() + " " + a.getStreetname() + " " + a.getHouseNumber();
+		
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("googleMaps.fxml"));
+			Parent root;
+			root = (Parent) fxmlLoader.load();
+			Stage stage = new Stage();
+			stage.setTitle("Location");
+			stage.setScene(new Scene(root));
+			stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 	
 	public void surveyMenu(ActionEvent event) throws IOException
 	{
@@ -157,9 +203,16 @@ public class TrainingsController {
 		
 	}
 	
-	public void statisticsMenu()
+	public void statisticsMenu(ActionEvent event) throws IOException
 	{
-		errorText.setText("No statistics menu available");
+		Parent loginParent = FXMLLoader.load(getClass().getResource("StatisticGUI.fxml"));
+		Scene loginScene = new Scene(loginParent);
+		
+		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setScene(loginScene);
+		//window.setResizable(false);
+		
+		window.show();
 	}
 	
 	public void logout(ActionEvent event) throws IOException

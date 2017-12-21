@@ -116,6 +116,13 @@ public class TrainingRequest {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
+	@Override
+	public String toString() {
+		return "TrainingRequest [requestId=" + requestId + ", trainingId=" + trainingId + ", reason=" + reason
+				+ ", createDate=" + createDate + ", updateDate=" + updateDate + ", userId=" + userId + ", status="
+				+ status + "]";
+	}
 	
 	
 	

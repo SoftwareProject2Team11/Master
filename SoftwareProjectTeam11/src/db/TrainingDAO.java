@@ -19,7 +19,7 @@ public class TrainingDAO {
 	
 	
 	session.save(training);
-		
+	
 		
 	//closing session
 	session.getTransaction().commit();
@@ -66,6 +66,33 @@ public class TrainingDAO {
 	
 
 	query.setParameter("i", id);
+	
+	t = query.uniqueResult();
+	
+		
+		
+	//closing session
+	session.getTransaction().commit();
+	System.out.println("Statement Worked!");
+	session.close();
+
+	
+	return t;
+	}
+	
+	public Training getTrainingByNameAndDesc(String name, String desc)
+	{
+		
+	//opening session
+	Session session = Main.sessionFactory.getCurrentSession();
+	session.beginTransaction();
+	Training t = new Training();
+	
+	@SuppressWarnings("unchecked")
+	Query<Training> query = session.createQuery("FROM Training WHERE trainingName = :i AND trainingSummary = :e");
+
+	query.setParameter("i", name);
+	query.setParameter("e", desc);
 	
 	t = query.uniqueResult();
 	

@@ -18,16 +18,25 @@ public class Address {
 	private int houseNumber;
 	@Column(name="city")
 	private String city;
+	@Column(name="visibility")
+	private int visibility;
+	@Column(name="lat")
+	private double  lat;
+	@Column(name="long")
+	private double  longi;
 	
 	public Address() {
 		
 	}
-	public Address(int AddressId,String streetname, int houseNumber, String city) {
+	public Address(int AddressId,String streetname, int houseNumber, String city, int visibility, double lat, double longi) {
 		super();
 		this.AddressId = AddressId;
 		this.streetname = streetname;
 		this.houseNumber = houseNumber;
 		this.city = city;
+		this.visibility=visibility;
+		this.lat=lat;
+		this.longi=longi;
 	}
 	public String getStreetname() {
 		return streetname;

@@ -133,7 +133,7 @@ public class SurveyHomeController {
 	@FXML
 	public void showSurveys()
 	{
-		errorText.setText("You are already in this Tab");
+		errorText.setText("You are already in Survey menu");
 	}
 	@FXML
 	public void createSurvey(ActionEvent event) throws IOException
@@ -155,12 +155,18 @@ public class SurveyHomeController {
 	
 	public void surveyMenu()
 	{
-		errorText.setText("You are already in Survey menu");
+		
+		errorText.setText("You are already in this Tab");
 	}
 	
-	public void statisticsMenu()
+	public void statisticsMenu(ActionEvent event) throws IOException
 	{
-		errorText.setText("No statistics menu available");
+		Parent loginParent = FXMLLoader.load(getClass().getResource("StatisticGUI.fxml"));
+		Scene loginScene = new Scene(loginParent);
+		
+		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setScene(loginScene);
+		window.show();
 	}
 	
 	public void logout(ActionEvent event) throws IOException

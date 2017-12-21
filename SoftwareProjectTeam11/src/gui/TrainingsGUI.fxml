@@ -43,7 +43,7 @@
       <Label text="Label" textFill="#2d3447" BorderPane.alignment="CENTER" />
    </right>
    <center>
-      <TableView fx:id="column" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="column" onMouseClicked="#clickedLoc" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
           <TableColumn fx:id="description" prefWidth="110.0" text="Description" />

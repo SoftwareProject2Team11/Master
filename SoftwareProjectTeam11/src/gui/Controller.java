@@ -40,26 +40,17 @@ public class Controller {
 	
 	public static String mail;
 	
-	@FXML
-	public void initialize()
-	{
 
-			String kleur = new ColorDAO().getColor();
-			System.out.println(kleur);
-		/*	pane.setStyle("-fx-background-color: #" + kleur);
-			panes.setStyle("-fx-background-color: #" + kleur);*/
-
-	}
+	
 	
 	
 	
 	public void checkLogin(ActionEvent event)throws IOException
 	{
-			
+		if (Main.con) {
 			boolean check = new LoginDAO().checkLogin(usernameText.getText(), passwordText.getText());
 			if(/*check*/true) {
 			setUser(usernameText.getText());
-			System.out.println(getUser());
 			Parent homepageParent = FXMLLoader.load(getClass().getResource("TrainingsGUI.fxml"));
 			Scene homepageScene = new Scene(homepageParent);
 			
@@ -67,10 +58,7 @@ public class Controller {
 			window.setScene(homepageScene);
 			window.setResizable(true);
 			window.setTitle("Homepage");
-			/*
-			Label l = (Label)homepageScene.lookup("#welcomeText");
-			l.setText("Welcome ");*/
-
+	
 			window.show();
 			}
 			else {
@@ -78,7 +66,15 @@ public class Controller {
 				usernameText.deleteText(0, usernameText.getLength());
 				passwordText.deleteText(0, usernameText.getLength());
 			}
+		}
+		else {
+			Parent loginParent = FXMLLoader.load(getClass().getResource("NoConnectionGUI.fxml")); 
+			Scene loginScene = new Scene(loginParent);
 			
+			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			window.setScene(loginScene);
+			window.show();
+		}
 
 	}
 	
