@@ -49,7 +49,7 @@ public class Controller {
 	{
 		if (Main.con) {
 			boolean check = new LoginDAO().checkLogin(usernameText.getText(), passwordText.getText());
-			if(/*check*/true) {
+			if(check) {
 			setUser(usernameText.getText());
 			Parent homepageParent = FXMLLoader.load(getClass().getResource("TrainingsGUI.fxml"));
 			Scene homepageScene = new Scene(homepageParent);
