@@ -80,4 +80,36 @@ public class EmployeeOdata {
 		return emp;
 	}
 	
+	public String getEmployeeNameById(int id)
+	{
+		Client client = ClientBuilder.newClient();
+		
+		WebTarget target=client.target("http://services.odata.org/V3/Northwind/Northwind.svc/Employees("+id+")/FirstName");
+		WebTarget target2=client.target("http://services.odata.org/V3/Northwind/Northwind.svc/Employees("+id+")/LastName");
+		
+		String firstname = target.request(MediaType.APPLICATION_JSON).get(String.class);
+		firstname = new ClearString().clearGivenString(firstname);
+		String lastname = target2.request(MediaType.APPLICATION_JSON).get(String.class);
+		lastname = new ClearString().clearGivenString(lastname);
+		
+		String name = lastname + firstname;
+		return name;
+	}
+	
+	public String getEmployeeCorrectNameById(int id)
+	{
+		Client client = ClientBuilder.newClient();
+		
+		WebTarget target=client.target("http://services.odata.org/V3/Northwind/Northwind.svc/Employees("+id+")/FirstName");
+		WebTarget target2=client.target("http://services.odata.org/V3/Northwind/Northwind.svc/Employees("+id+")/LastName");
+		
+		String firstname = target.request(MediaType.APPLICATION_JSON).get(String.class);
+		firstname = new ClearString().clearGivenString(firstname);
+		String lastname = target2.request(MediaType.APPLICATION_JSON).get(String.class);
+		lastname = new ClearString().clearGivenString(lastname);
+		
+		String name = lastname + " " + firstname;
+		return name;
+	}
+	
 }

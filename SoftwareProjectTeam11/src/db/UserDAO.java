@@ -1,52 +1,67 @@
 package db;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import gui.Main;
-import logic.Answer;
-import logic.Question;
+import logic.Training;
 
-public class AnswerDAO {
-
-	public void addAnswer(Answer a)
-	{
-	//opening session
-	Session session = Main.sessionFactory.getCurrentSession();
-	session.beginTransaction();
+public class UserDAO {
 	
-	
-	session.save(a);
-		
-		
-	//closing session
-	session.getTransaction().commit();
-	System.out.println("Statement Worked!");
-	session.close();
-	}
-	
-	public List<Answer> getAnswers(int id)
+	public List<String> getAll()
 	{
 		
 	//opening session
+	
 	Session session = Main.sessionFactory.getCurrentSession();
 	session.beginTransaction();
 	
 	
 	@SuppressWarnings("unchecked")
-	Query<Answer> query = session.createQuery("FROM Answer WHERE questionId = :i");
-	query.setParameter("i", id);
-	List<Answer> lijst = query.list();	
+	Query<String> query = session.createNativeQuery("SELECT name FROM users");
+	
+	List<String> lijst = query.list();
 		
 		
 	//closing session
 	session.getTransaction().commit();
 	System.out.println("Statement Worked!");
 	session.close();
-
+	
 	
 	return lijst;
 	}
+	
+	public String getAllFollowing(int id)
+	{
+		
+	//opening session
+	
+	Session session = Main.sessionFactory.getCurrentSession();
+	session.beginTransaction();
+	
+	
+	@SuppressWarnings("unchecked")
+	Query<String> query = session.createNativeQuery("SELECT name FROM users where id = :i");
+	query.setParameter("i", id);
+	
+	String pers = query.uniqueResult();
+		
+		
+	//closing session
+	session.getTransaction().commit();
+	System.out.println("Statement Worked!");
+	session.close();
+	
+	
+	return pers;
+	}
+	
+
 }

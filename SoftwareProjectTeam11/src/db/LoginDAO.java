@@ -157,18 +157,18 @@ public class LoginDAO extends BaseDAO {
 	
 	
 	
-	public boolean setReset(String username, int wasReset)
+	public boolean setReset(String email, int wasReset)
 	{
 		PreparedStatement ps = null;
 		Random r= new Random();
 		int reset = r.nextInt(10000);
-
+		email = email.toLowerCase();
 		if (wasReset == -1) {
 			reset = -1;
 		}
 		
 		//System.out.println(password + ":  " + salt);
-		String sql = "UPDATE Login set reset = " + reset + " where username = ?";
+		String sql = "UPDATE Login set reset = " + reset + " where email = ?";
 		
 		try
 		{
@@ -177,7 +177,7 @@ public class LoginDAO extends BaseDAO {
 				throw new RuntimeException("Connection is closed");
 			}
 			ps = getConnection().prepareStatement(sql);
-			ps.setString(1, username);
+			ps.setString(1, email);
 			
 			
 			if (ps.executeUpdate() == 0) {
@@ -210,13 +210,15 @@ public class LoginDAO extends BaseDAO {
 		}
 	}
 	
-	public boolean setNewPassword(String username, String password)
+	public boolean setNewPassword(String email, String password)
 	{
 		PreparedStatement ps = null;
-		String sql = "UPDATE Login set password = ? , salt = ? where username = ?";
+		email = email.toLowerCase();
+		System.out.println("Lower:  " + email);
+		String sql = "UPDATE Login set password = ? , salt = ?, reset = -1 where email = ?";
 		Random r= new Random();
 		int salt = r.nextInt(99);
-		System.out.println(salt);
+		
 		String stringToHash = password + salt;
 		password = new Sha512().hashPassword(stringToHash);
 		
@@ -227,7 +229,7 @@ public class LoginDAO extends BaseDAO {
 				throw new RuntimeException("Connection is closed");
 			}
 			ps = getConnection().prepareStatement(sql);
-			ps.setString(3, username);
+			ps.setString(3, email);
 			ps.setString(1, password);
 			ps.setInt(2, salt);
 			
@@ -260,15 +262,16 @@ public class LoginDAO extends BaseDAO {
 			}
 		}
 	}
-	public int getReset(String username)
+	public int getReset(String email)
 	{
 		PreparedStatement ps = null;
 		Random r= new Random();
 		int salt = r.nextInt(10000);
 		System.out.println(salt);
+		email = email.toLowerCase();
 		
 		
-		String sql = "SELECT reset FROM Login where username = ? and reset != -1";
+		String sql = "SELECT reset FROM Login where email = ? and reset != -1";
 		
 		try
 		{
@@ -277,7 +280,7 @@ public class LoginDAO extends BaseDAO {
 				throw new RuntimeException("Connection is closed");
 			}
 			ps = getConnection().prepareStatement(sql);
-			ps.setString(1, username);
+			ps.setString(1, email);
 			
 			ResultSet rs =  ps.executeQuery();
 			int reset= -1;

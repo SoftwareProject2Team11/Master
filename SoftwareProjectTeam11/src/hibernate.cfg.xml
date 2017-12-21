@@ -48,6 +48,9 @@
          <mapping class="logic.Training"/>
          <mapping class="logic.Location"/>
          <mapping class="logic.TrainingRequest"/>
+         <mapping class="logic.KeyCodes"/>
+         <mapping class="logic.Users"/>
+       <!--   <mapping class="logic.Color"/> -->
         
         
 	 

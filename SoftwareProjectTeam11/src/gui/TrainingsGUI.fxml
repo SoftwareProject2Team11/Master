@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane fx:controller="gui.TrainingsController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TrainingsController">
    <top>
       <TitledPane animated="false" prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" text="Menu" BorderPane.alignment="CENTER">
          <content>
@@ -19,6 +18,7 @@
                   <JFXButton fx:id="training" text="Training" textFill="WHITE" />
                   <JFXButton fx:id="surveyButton" onAction="#surveyMenu" text="Survey" textFill="WHITE" />
                   <JFXButton fx:id="statisticsButton" onAction="#statisticsMenu" text="Statistics" textFill="WHITE" />
+                  <JFXButton fx:id="optionButton" onAction="#openOption" text="Options" textFill="WHITE" />
                   <JFXButton fx:id="logoutButton" alignment="TOP_RIGHT" onAction="#logout" text="Log out" textFill="WHITE" />
                </children>
             </HBox>
@@ -28,10 +28,11 @@
    <left>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="trainingsButton" minHeight="35.0" minWidth="50.0" onAction="#showTrainings" prefHeight="74.0" prefWidth="102.0" text="Trainings" textFill="WHITE" />
-            <JFXButton fx:id="createButton" onAction="#createTraining" prefHeight="78.0" prefWidth="135.0" text="Create" textFill="WHITE" />
-            <JFXButton fx:id="assignButton" onAction="#assignTraining" prefHeight="78.0" prefWidth="135.0" text="Assign" textFill="WHITE" />
-            <JFXButton fx:id="demandsButton" minHeight="35.0" minWidth="50.0" onAction="#demandsTraining" prefHeight="74.0" prefWidth="102.0" text="Demands" textFill="WHITE" />
+            <JFXButton fx:id="trainingsButton" minHeight="35.0" minWidth="50.0" onAction="#showTrainings" prefHeight="74.0" prefWidth="102.0" style="-fx-border-color: white;" text="Trainings" textFill="WHITE" />
+            <JFXButton fx:id="createButton" onAction="#createTraining" prefHeight="78.0" prefWidth="135.0" style="-fx-border-color: white;" text="Create" textFill="WHITE" />
+            <JFXButton fx:id="assignButton" onAction="#assignTraining" prefHeight="78.0" prefWidth="135.0" style="-fx-border-color: white;" text="Assign" textFill="WHITE" />
+            <JFXButton fx:id="demandsButton" minHeight="35.0" minWidth="50.0" onAction="#demandsTraining" prefHeight="74.0" prefWidth="102.0" style="-fx-border-color: white;" text="Demands" textFill="WHITE" />
+            <JFXButton fx:id="certificateButton" minHeight="35.0" minWidth="50.0" onAction="#certif" prefHeight="74.0" prefWidth="102.0" style="-fx-border-color: white;" text="Certificate" textFill="WHITE" />
          </children>
       </VBox>
    </left>
@@ -42,7 +43,7 @@
       <Label text="Label" textFill="#2d3447" BorderPane.alignment="CENTER" />
    </right>
    <center>
-      <TableView  fx:id="column" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="column" onMouseClicked="#clickedLoc" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
           <TableColumn fx:id="description" prefWidth="110.0" text="Description" />

@@ -18,6 +18,7 @@
                   <JFXButton fx:id="training" text="Training" textFill="WHITE" />
                   <JFXButton fx:id="surveyButton" onAction="#surveyMenu" text="Survey" textFill="WHITE" />
                   <JFXButton fx:id="statisticsButton" onAction="#statisticsMenu" text="Statistics" textFill="WHITE" />
+                  <JFXButton fx:id="optionButton" onAction="#openOption" text="Options" textFill="WHITE" />
                   <JFXButton fx:id="logoutButton" alignment="TOP_RIGHT" onAction="#logout" text="Log out" textFill="WHITE" />
                </children>
             </HBox>
@@ -31,6 +32,7 @@
             <JFXButton fx:id="createButton" onAction="#createTraining" prefHeight="78.0" prefWidth="135.0" style="-fx-border-color: white;" text="Create" textFill="WHITE" />
             <JFXButton fx:id="assignButton" onAction="#assignTraining" prefHeight="78.0" prefWidth="135.0" style="-fx-border-color: white;" text="Assign" textFill="WHITE" />
             <JFXButton fx:id="demandsButton" minHeight="35.0" minWidth="50.0" onAction="#demandsTraining" prefHeight="74.0" prefWidth="102.0" style="-fx-border-color: white;" text="Demands" textFill="WHITE" />
+            <JFXButton fx:id="certificateButton" minHeight="35.0" minWidth="50.0" onAction="#certif" prefHeight="74.0" prefWidth="102.0" style="-fx-border-color: white;" text="Certificate" textFill="WHITE" />
          </children>
       </VBox>
    </left>

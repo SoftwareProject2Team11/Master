@@ -12,7 +12,7 @@ import logic.Address;
 
 public class AddressDAO {
 	
-	public void addAddress(Address address)
+	public void addAddress(String street, int n, String cty)
 	{
 		
 	//opening session
@@ -20,15 +20,18 @@ public class AddressDAO {
 	session.beginTransaction();
 	
 	
-	session.save(address);
+	
+	Query query = session.createNativeQuery("INSERT INTO Address VALUES (null, :name , :number , :city , 1, 0.0, 0.0 ) ");
+	query.setParameter("name", street);
+	query.setParameter("number", n);
+	query.setParameter("city", cty);
+	query.executeUpdate();
 		
 		
 	//closing session
 	session.getTransaction().commit();
 	System.out.println("Statement Worked!");
-	session.close();
- 
-		
+	session.close();	
 	}
 	
 	
@@ -83,7 +86,8 @@ public class AddressDAO {
 	session.beginTransaction();
 
 	@SuppressWarnings("unchecked")
-	Query<Address> query = session.createQuery("FROM Address WHERE streetname Like '%"+name+"%'");
+	Query<Address> query = session.createQuery("FROM Address WHERE streetname Like :nam ");
+	query.setParameter("nam", "%"+name+"%");
 	Address a = (Address) query.uniqueResult();
 		
 		
