@@ -1,31 +1,42 @@
 package logic;
 
-//@Entity
-//@Table(name="Address")
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Address")
 public class Address {
 	
-	//@Id
-	//@Column(name="addressId")
+	@Id
+	@Column(name="addressId")
 	private int AddressId;
-	//@Column(name="streetname")
+	@Column(name="streetname")
 	private String streetname;
-	//@Column(name="houseNumber)
+	@Column(name="houseNumber")
 	private int houseNumber;
-	//@Column(name="city")
+	@Column(name="city")
 	private String city;
+	@Column(name="visibility")
+	private int visibility;
+	@Column(name="lat")
+	private double  lat;
+	@Column(name="long")
+	private double  longi;
 	
-	public Address(String streetname, int houseNumber, String city) {
-		super();
-		this.streetname = streetname;
-		this.houseNumber = houseNumber;
-		this.city = city;
+	public Address() {
+		
 	}
-	public Address(int AddressId,String streetname, int houseNumber, String city) {
+	public Address(int AddressId,String streetname, int houseNumber, String city, int visibility, double lat, double longi) {
 		super();
 		this.AddressId = AddressId;
 		this.streetname = streetname;
 		this.houseNumber = houseNumber;
 		this.city = city;
+		this.visibility=visibility;
+		this.lat=lat;
+		this.longi=longi;
 	}
 	public String getStreetname() {
 		return streetname;
@@ -51,4 +62,6 @@ public class Address {
 	public void setAddressId(int AddressId) {
 		this.AddressId = AddressId;
 	}
+	
+
 }

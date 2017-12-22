@@ -1,52 +1,87 @@
-package logic;
+/*package logic;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Survey")
 public class Survey {
-	
+ 
+	@Id
 	private int surveyId;
-	private Training training;
+	private int employeeId;
+	private int trainingId;
+	private boolean visibility;
 	private String surveyDescription;
-	private Employee employee;
-
-	public Survey(int surveyId, Training training, String surveyDescription, Employee employee) {
-		super();
-		this.surveyId = surveyId;
-		this.training = training;
-		this.surveyDescription = surveyDescription;
-		this.employee = employee;
-	}
+	//private Training training;
+	//private Employee employee;
 	
+	
+	
+	public Survey() {
+		super();
+		
+	}
+
+
+
 	public int getSurveyId() {
 		return surveyId;
 	}
+
+
 
 	public void setSurveyId(int surveyId) {
 		this.surveyId = surveyId;
 	}
 
-	public Training getTraining() {
-		return training;
+
+
+	public int getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setTraining(Training training) {
-		this.training = training;
+
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
+
+
+
+	public int getTrainingId() {
+		return trainingId;
+	}
+
+
+
+	public void setTrainingId(int trainingId) {
+		this.trainingId = trainingId;
+	}
+
+
+
+	public boolean isVisibility() {
+		return visibility;
+	}
+
+
+
+	public void setVisibility(boolean visibility) {
+		this.visibility = visibility;
+	}
+
+
 
 	public String getSurveyDescription() {
 		return surveyDescription;
 	}
 
+
+
 	public void setSurveyDescription(String surveyDescription) {
 		this.surveyDescription = surveyDescription;
 	}
-
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
-	
-	
-
 }
+*/
