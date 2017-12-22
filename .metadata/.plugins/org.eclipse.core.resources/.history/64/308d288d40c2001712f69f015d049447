@@ -1,0 +1,9 @@
+package logic;
+
+public class Question {
+	
+	private int questionId;
+	private int surveyId;
+	private 
+
+}

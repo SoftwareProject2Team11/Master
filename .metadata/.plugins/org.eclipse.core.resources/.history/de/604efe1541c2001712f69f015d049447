@@ -1,0 +1,9 @@
+package logic;
+
+public class Answer {
+	
+	private int answerId;
+	private int questionId;
+	private ArrayList<String> answers;
+
+}

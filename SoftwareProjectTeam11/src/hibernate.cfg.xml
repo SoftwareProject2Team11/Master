@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://dt5.ehb.be/SP2Team11</property>
+        <property name="connection.username">SP2Team11</property>
+        <property name="connection.password">QJC48w</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Names the annotated entity class -->
+         <mapping class="logic.Address"/>
+         <mapping class="logic.Answer"/>
+         <mapping class="logic.Certificat"/>
+        <!-- <mapping class="logic.Employee"/> -->
+         <mapping class="logic.Login"/>
+         <mapping class="logic.Material"/>
+         <mapping class="logic.Question"/>
+         <mapping class="logic.Reminder"/>
+     <!--    <mapping class="logic.Survey"/> -->
+         <mapping class="logic.Training"/>
+         <mapping class="logic.Location"/>
+         <mapping class="logic.TrainingRequest"/>
+         <mapping class="logic.KeyCodes"/>
+         <mapping class="logic.Users"/>
+       <!--   <mapping class="logic.Color"/> -->
+        
+        
+	 
+    </session-factory>
+
+</hibernate-configuration>
