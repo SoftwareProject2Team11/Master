@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashMap;
+import logic.Email;
+import logic.Address;
 
 
 
@@ -25,6 +27,8 @@ public class Person implements Serializable, Runnable, Comparable<Person>{
 	private static ArrayList<Person> persons = new ArrayList<Person>();
 	private HashMap<Person, Integer> persons1 = new HashMap<Person,Integer>();
 	private Object obj;
+	private Email Email;
+
 	
 	public Person(int iD, String firstname, String lastname, Address address, String email, String telephone) {
 		super();
@@ -36,6 +40,9 @@ public class Person implements Serializable, Runnable, Comparable<Person>{
 		this.telephone = telephone;
 		persons.add(this);
 		persons1.getClass().isInstance(obj);
+		this.Email = new Email();
+		this.Email.validate(email);
+
 	}
 	
 	//getters, setters

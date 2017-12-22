@@ -1,50 +1,54 @@
 package logic;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Material")
 public class Material {
-	private int materialID;
+	@Id
+	@Column(name = "materialId")
+	private int materialId;
+	@Column(name = "trainingId")
+	private int trainingId;
+	@Column(name = "title")
 	private String title;
-	private int ISBN;
-	private String author;
-	
-	public Material(int ISBN,String author,String title)
-	{
-		this.materialID++;
-		this.setTitle(title);
-		this.setAuthor(author);
-		this.setISBN(ISBN);
+
+	public Material(int materialId, int trainingId, String title) {
+		super();
+		this.materialId = materialId;
+		this.trainingId = trainingId;
+		this.title = title;
 	}
-	public int getMaterialID()
-	{
-		return this.materialID;
+
+	public Material() {
+
 	}
-	public String getTitle()
-	{
-		return this.title;
-		
+
+	public int getMaterialId() {
+		return materialId;
 	}
-	public String getAuthor()
-	{
-		return this.author;
+
+	public void setMaterialId(int materialId) {
+		this.materialId = materialId;
 	}
-	public int getISBN()
-	{
-		return this.ISBN;
+
+	public int getTrainingId() {
+		return trainingId;
 	}
-	public void setISBN(int ISBN)
-	{
-		this.ISBN=ISBN;
+
+	public void setTrainingId(int trainingId) {
+		this.trainingId = trainingId;
 	}
-	public void setTitle(String title)
-	{
-		this.title=title;
+
+	public String getTitle() {
+		return title;
 	}
-	public void setAuthor(String author)
-	{
-		this.author=author;
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	
-	
-	
-	
-	
+
 }

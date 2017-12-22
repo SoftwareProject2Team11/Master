@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StatisticsController">
+   <top>
+      <TitledPane  animated="false" prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" text="Menu" BorderPane.alignment="CENTER">
+         <content>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #2D3447;">
+               <children>
+                  <JFXButton fx:id="training" text="Training" onAction="#trainingMenu" textFill="WHITE" />
+                  <JFXButton fx:id="surveyButton" onAction="#surveyMenu" text="Survey" textFill="WHITE" />
+                  <JFXButton fx:id="statisticsButton" onAction="#statisticsMenu" text="Statistics" textFill="WHITE" />
+                  <JFXButton fx:id="optionButton" onAction="#openOption" text="Options" textFill="WHITE" />
+                  <JFXButton fx:id="logoutButton" alignment="TOP_RIGHT" onAction="#logout" text="Log out" textFill="WHITE" />
+               </children>
+            </HBox>
+         </content>
+      </TitledPane>
+   </top>
+   <bottom>
+      <Label fx:id="errorText" textFill="RED" BorderPane.alignment="CENTER" />
+   </bottom>
+   <right>
+
+   </right>
+   <center>
+      <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label style="-fx-font-weight: bold;" text="Most popular training:" textFill="WHITE" />
+            <Label fx:id="popularTraining" text="Not available" textFill="WHITE" />
+            <Label style="-fx-font-weight: bold;" text="Employee with most training followed" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Label>
+            <Label fx:id="trainingFollowed" text="Not available" textFill="WHITE" />
+            <Label style="-fx-font-weight: bold;" text="Employees following a training" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <ListView fx:id="employeeList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="167.0" prefWidth="256.0" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
