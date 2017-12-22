@@ -202,6 +202,8 @@ public class TrainingCreateController {
 			errorText.setText("Please fill in all the blanks");
 		} else {
 			
+		if (!beginDate.getValue().isAfter(endDate.getValue()) ||  beginDate.getValue().equals(endDate.getValue())) {
+			
 		
 			
 			new AddressDAO().addAddress(streetName, Integer.parseInt(housNumber), ct);
@@ -221,6 +223,9 @@ public class TrainingCreateController {
 			
 			
 			errorText.setText(nameTraining + " was created succesfully");
+		} else {
+			errorText.setText("Selected end date is before begin date");
+		}
 			
 		}
 

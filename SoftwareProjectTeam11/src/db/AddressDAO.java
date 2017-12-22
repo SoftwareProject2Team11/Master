@@ -88,7 +88,7 @@ public class AddressDAO {
 	@SuppressWarnings("unchecked")
 	Query<Address> query = session.createQuery("FROM Address WHERE streetname Like :nam ");
 	query.setParameter("nam", "%"+name+"%");
-	Address a = (Address) query.uniqueResult();
+	List<Address> lijst = query.list();
 		
 		
 	//closing session
@@ -96,6 +96,6 @@ public class AddressDAO {
 	System.out.println("Statement Worked!");
 	session.close();
  
-	return a;
+	return lijst.get(0);
 	}
 }
