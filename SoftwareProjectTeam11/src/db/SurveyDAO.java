@@ -1,4 +1,4 @@
-package db;
+/*package db;
 
 import java.util.List;
 
@@ -91,3 +91,4 @@ public class SurveyDAO {
 	}
 }
 	
+*/

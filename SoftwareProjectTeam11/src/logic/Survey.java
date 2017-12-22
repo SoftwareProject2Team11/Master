@@ -1,4 +1,4 @@
-package logic;
+/*package logic;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -84,3 +84,4 @@ public class Survey {
 		this.surveyDescription = surveyDescription;
 	}
 }
+*/
