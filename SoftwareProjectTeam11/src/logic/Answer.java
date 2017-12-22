@@ -1,18 +1,33 @@
 package logic;
 
-import java.util.ArrayList;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name="Answer")
 public class Answer {
 	
+	@Id
+	@Column(name="answerId")
 	private int answerId;
+	@Column(name="answer")
+	private String answer;
+	@Column(name="questionId")
 	private int questionId;
-	private ArrayList<String> answers;
 	
-	public Answer(int answerId, int questionId, ArrayList<String> answers) {
+	
+	public Answer(int answerId, String answer, int questionId) {
 		super();
 		this.answerId = answerId;
+		this.answer = answer;
 		this.questionId = questionId;
-		this.answers = answers;
+	}
+
+	public Answer() {
+
 	}
 
 	public int getAnswerId() {
@@ -23,6 +38,14 @@ public class Answer {
 		this.answerId = answerId;
 	}
 
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
 	public int getQuestionId() {
 		return questionId;
 	}
@@ -30,15 +53,5 @@ public class Answer {
 	public void setQuestionId(int questionId) {
 		this.questionId = questionId;
 	}
-
-	public ArrayList<String> getAnswers() {
-		return answers;
-	}
-
-	public void setAnswers(ArrayList<String> answers) {
-		this.answers = answers;
-	}
-
 	
-
 }
