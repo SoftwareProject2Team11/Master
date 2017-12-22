@@ -43,7 +43,7 @@ public void sendEmail(String recipient, String HTMLBody) {
 	
 		final String username = "noreplythismail34@gmail.com";
 		final String password = "Soft2Groep11";
-		
+		System.out.println(1.2);
 		
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -51,7 +51,7 @@ public void sendEmail(String recipient, String HTMLBody) {
 		props.put("mail.smtp.port", "465");
 		props.put("mail.smtp.socketFactory.port", "465");
 		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-		
+		System.out.println(1.3);
 		Session session = Session.getInstance(props, 
 				new javax.mail.Authenticator() {
 					
@@ -60,16 +60,19 @@ public void sendEmail(String recipient, String HTMLBody) {
 					}
 		});
 		
-		
+		System.out.println(1.4);
 		try {
+			System.out.println(1.5);
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("noreplythismail34@gmail.com"));
+			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO, 
 					InternetAddress.parse(recipient));
-			message.setSubject("Reminder to training");
+			message.setSubject("New Password");
+			System.out.println(1.6);
 			message.setContent(HTMLBody,"text/html; charset=utf-8");
+			System.out.println(1.7);
 			Transport.send(message);
-			
+			System.out.println(1.8);
 			System.out.println("...Mail succesfully send...");
 		}
 		

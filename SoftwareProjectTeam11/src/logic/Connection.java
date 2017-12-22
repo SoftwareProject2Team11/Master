@@ -1,23 +1,40 @@
 package logic;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+/*
+ * @Author Krishna Srinivasan
+ * bron: https://javabeat.net/internet-connection-java/
+ * */
+
 
 public class Connection {
-	SessionFactory sessionFactory;
-	Session s;
 	
-	public void openConnection() {
-		sessionFactory = new Configuration().configure().buildSessionFactory();
-		s = sessionFactory.openSession();
-		s.beginTransaction();	
+
+	public boolean checkConnection()
+	{
+		boolean connection = false;
+		try {
+			try {
+				URL url = new URL("http://www.google.com");
+				System.out.println(url.getHost());
+				HttpURLConnection con = (HttpURLConnection) url
+						.openConnection();
+				con.connect();
+				if (con.getResponseCode() == 200){
+					
+					connection = true;
+				}
+			} catch (Exception exception) {
+			
+				connection = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return connection;
+	}
 	}
 	
-	public void finalize() {
-		   s.getTransaction().commit();
-		   s.close();
-		   sessionFactory.close();
-		  }
-	
-}
+
