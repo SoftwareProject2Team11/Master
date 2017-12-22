@@ -1,5 +1,6 @@
 package db;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -86,7 +87,7 @@ public class TrainingDAO {
 	//opening session
 	Session session = Main.sessionFactory.getCurrentSession();
 	session.beginTransaction();
-	Training t = new Training();
+	List<Training> lijst = new ArrayList<Training>();
 	
 	@SuppressWarnings("unchecked")
 	Query<Training> query = session.createQuery("FROM Training WHERE trainingName = :i AND trainingSummary = :e");
@@ -94,7 +95,7 @@ public class TrainingDAO {
 	query.setParameter("i", name);
 	query.setParameter("e", desc);
 	
-	t = query.uniqueResult();
+	lijst = query.list();
 	
 		
 		
@@ -104,7 +105,7 @@ public class TrainingDAO {
 	session.close();
 
 	
-	return t;
+	return lijst.get(lijst.size()-1);
 	}
 
 }
