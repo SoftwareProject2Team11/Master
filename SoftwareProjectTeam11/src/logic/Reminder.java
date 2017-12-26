@@ -10,8 +10,14 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table
 public class Reminder {
+	@Id
 	private int reminderId;
 	private Date reminderDate;
 	
@@ -45,6 +51,7 @@ public class Reminder {
 		this.reminderDate = rinderDate;
 	}
 	
+	/*
 public void sendReminder(Training training, String recipient) {
 		
 		final String username = "noreplythismail34@gmail.com";
@@ -100,7 +107,7 @@ public void sendReminder(Training training, String recipient) {
 											/* public String toStringForMail() {
 												return super.getPostal() + " " + super.getCity() + " - " + super.getStreet() + " " + super.getNumber() + " " + super.getBus();
 												}
-											 */
+											 
 												
 										"    <li><p>Duration: " + training.getDuration() + " hours</p></li>\n" + 
 									"</ul>\n" + 
@@ -129,5 +136,6 @@ public void sendReminder(Training training, String recipient) {
 			throw new RuntimeException("...Failed to send email...");
 		}
 	}
+	*/
 	
 }
