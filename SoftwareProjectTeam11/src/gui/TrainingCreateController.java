@@ -81,7 +81,7 @@ public class TrainingCreateController {
 
 	@FXML
 	public void initialize() {
-		
+
 		lijst.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 	}
 
@@ -198,35 +198,32 @@ public class TrainingCreateController {
 
 		if (nameTraining.equals("") || desc.equals("") || begin.equals("") || end.equals("") || streetName.equals("")
 				|| housNumber.equals("") || ct.equals("")) {
-			
+
 			errorText.setText("Please fill in all the blanks");
 		} else {
-			
-		if (!beginDate.getValue().isAfter(endDate.getValue()) ||  beginDate.getValue().equals(endDate.getValue())) {
-			
-		
-			
-			new AddressDAO().addAddress(streetName, Integer.parseInt(housNumber), ct);
-			int i = new AddressDAO().getAddressByStreet(streetName).getAddressId();
-			Location l = new Location(0, i, " ", " ");
-			new LocationDAO().addLocation(l);
-			int lid = new LocationDAO().getLocationByAddressId(i).getLocationId();
-			Training t = new Training(0, lid, String.valueOf(begin), String.valueOf(end), nameTraining, desc, 1);
-			new TrainingDAO().addTraining(t);
-			
-			int trainingid = new TrainingDAO().getTrainingByNameAndDesc(nameTraining, desc).getTrainingId();
-			
-			String selectedBook = lijst.getSelectionModel().getSelectedItem();
 
-			Material m = new Material(0, trainingid, selectedBook);
-			new MaterialDAO().addMaterial(m);
-			
-			
-			errorText.setText(nameTraining + " was created succesfully");
-		} else {
-			errorText.setText("Selected end date is before begin date");
-		}
-			
+			if (!beginDate.getValue().isAfter(endDate.getValue()) || beginDate.getValue().equals(endDate.getValue())) {
+
+				new AddressDAO().addAddress(streetName, Integer.parseInt(housNumber), ct);
+				int i = new AddressDAO().getAddressByStreet(streetName).getAddressId();
+				Location l = new Location(0, i, " ", " ");
+				new LocationDAO().addLocation(l);
+				int lid = new LocationDAO().getLocationByAddressId(i).getLocationId();
+				Training t = new Training(0, lid, String.valueOf(begin), String.valueOf(end), nameTraining, desc, 1);
+				new TrainingDAO().addTraining(t);
+
+				int trainingid = new TrainingDAO().getTrainingByNameAndDesc(nameTraining, desc).getTrainingId();
+
+				String selectedBook = lijst.getSelectionModel().getSelectedItem();
+
+				Material m = new Material(0, trainingid, selectedBook);
+				new MaterialDAO().addMaterial(m);
+
+				errorText.setText(nameTraining + " was created succesfully");
+			} else {
+				errorText.setText("Selected end date is before begin date");
+			}
+
 		}
 
 	}

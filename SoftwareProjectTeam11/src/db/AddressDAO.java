@@ -96,6 +96,6 @@ public class AddressDAO {
 	System.out.println("Statement Worked!");
 	session.close();
  
-	return lijst.get(0);
+	return lijst.get(lijst.size()-1);
 	}
 }
